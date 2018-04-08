@@ -6,4 +6,12 @@
     <wpt>
         <name>Mixnitz</name>
     </wpt>
+    <rte>
+        <wpt lat="47.123">
+            <name>Graz</name>
+        </wpt>
+        <wpt>
+            <name>Mixnitz</name>
+        </wpt>
+    </rte>
 </gpx>
