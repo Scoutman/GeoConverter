@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+      	"name": "rote wand"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.398197174072264,
+          47.32969013244894
+        ]
+      }
+    }
+  ]
+}
