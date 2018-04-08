@@ -1,6 +1,7 @@
 package at.mlakar.geoconverter.gpx.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -17,11 +18,11 @@ public class MGpx
 	
 	private String version;
 	@XmlElement(name = "wpt")
-	private ArrayList<MWaypoint> waypointList;
+	private List<MWaypoint> waypointList;
 	@XmlElement(name = "rte")
-	private ArrayList<MRoute> routeList;
+	private List<MRoute> routeList = new ArrayList<>();
 	@XmlElement(name = "trk")
-	private ArrayList<MTrack> trackList;
+	private List<MTrack> trackList;
 		
 	
 	
@@ -41,9 +42,19 @@ public class MGpx
 		this.waypointList = waypointList;
 	}
 
-	public ArrayList<MWaypoint> getWaypointsList()
+	public List<MWaypoint> getWaypointsList()
 	{
 		return waypointList;
+	}
+
+	public List<MRoute> getRoutesList()
+	{
+		return routeList;
+	}
+
+	public void addRouteList(MRoute routeList)
+	{
+		this.routeList.add(routeList);
 	}
 
 
