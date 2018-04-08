@@ -7,7 +7,9 @@
         <name>Mixnitz</name>
     </wpt>
     <rte>
+
         <wpt lat="47.123" lon="15.789">
+
             <name>Graz</name>
         </wpt>
         <wpt>
