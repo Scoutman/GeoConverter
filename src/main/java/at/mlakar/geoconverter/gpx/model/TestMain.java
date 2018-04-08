@@ -26,6 +26,7 @@ public class TestMain
 
 		wp1.setName("Graz");
 		wp1.setLat(new Double(47.123));
+		wp1.setLon(new Double(15.789));
 		waypointList.add(wp1);
 
 		MWaypoint wp2 = new MWaypoint();
