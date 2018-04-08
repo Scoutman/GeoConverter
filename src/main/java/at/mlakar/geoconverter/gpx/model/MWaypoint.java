@@ -20,7 +20,8 @@ public class MWaypoint extends MNamedElement
 	{
 		this.lat = lat;
 	}
-
+	
+	@XmlAttribute(name = "lon")
 	public Double getLon()
 	{
 		return lon;
