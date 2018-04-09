@@ -1,4 +1,4 @@
-package at.mlakar.geoconverter.model;
+package at.mlakar.geoconverter.geojson.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -5,6 +5,10 @@ public class MCoordinatePosition extends MCoordinate
 	private Double lat;
 	private Double lon;
 
+	public MCoordinatePosition()
+	{
+	}
+	
 	/**
 	 * 
 	 * @param lat Latitude

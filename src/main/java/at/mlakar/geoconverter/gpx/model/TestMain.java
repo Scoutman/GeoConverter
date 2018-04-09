@@ -3,7 +3,6 @@ package at.mlakar.geoconverter.gpx.model;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.JAXBContext;
@@ -18,35 +17,36 @@ public class TestMain
 
 	public static void main(String[] args) throws JAXBException, IOException
 	{
-
-		ArrayList<MWaypoint> waypointList = new ArrayList<MWaypoint>();
-
-		// create books
-		MWaypoint wp1 = new MWaypoint();
-
-		wp1.setName("Graz");
-		wp1.setLat(new Double(47.123));
-		wp1.setLon(new Double(15.789));
-		waypointList.add(wp1);
-		// test
-		MWaypoint wp2 = new MWaypoint();
-		wp2.setName("Mixnitz");
-		waypointList.add(wp2);
+		MWaypoint wp1 = new MWaypoint(new Double(47.32923199357016), new Double(15.362652534697418));
+		wp1.setName("Mixnitz");
 		
-		//List<MRoute> routeList = new ArrayList<>();
+		MWaypoint wp2 = new MWaypoint(new Double(47.36261372836141), new Double(15.425823921416168));
+		wp2.setName("Hochlantsch");
+
 		MRoute route = new MRoute();
-		route.setWaypointList(waypointList);
-		//routeList.add(route);
+		route.addWaypoint(wp1);
+		route.addWaypoint(wp2);
+		route.setName("Tolle erste Route");
+
+		MTrack track = new MTrack();
+		MTrackSegment trackSegment = new MTrackSegment();
 		
+		trackSegment.addWaypoint(wp1);
+		trackSegment.addWaypoint(wp2);
 		
-		// create bookstore, assigning book
+		track.setName("Ein aufgezeichneter Track");
+		track.addSegment(trackSegment);
+		track.addSegment(trackSegment);
+		
+		// create GPX
 		MGpx gpx = new MGpx();
 		gpx.setVersion("1.1");
-		gpx.setWaypointList(waypointList);
-		gpx.addRouteList(route);
+		gpx.addWaypoint(wp1);
+		gpx.addWaypoint(wp2);
+		gpx.addRoute(route);
+		gpx.addTrack(track);
 
 		// create JAXB context and instantiate marshaller
-
 		JAXBContext context = JAXBContext.newInstance(MGpx.class);
 		Marshaller m = context.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
@@ -71,3 +71,4 @@ public class TestMain
 		}
 	}
 }
+

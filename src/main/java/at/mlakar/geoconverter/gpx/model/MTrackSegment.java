@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import javax.xml.bind.annotation.XmlElement;
 
-public class MRoute extends MNamedElement
+public class MTrackSegment
 {
-	@XmlElement(name = "rtept")
+	@XmlElement(name = "trkpt")
 	private ArrayList<MWaypoint> waypointList = new ArrayList<>();
 
 	

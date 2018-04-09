@@ -8,8 +8,17 @@ public class MWaypoint extends MNamedElement
 {
 	private Double lat;
 	private Double lon;
-
 	
+	public MWaypoint()
+	{
+	}
+	
+	public MWaypoint(Double lat, Double lon)
+	{
+		this.lat = lat;
+		this.lon = lon;
+	}
+
 	@XmlAttribute(name = "lat")
 	public Double getLat()
 	{
@@ -32,4 +41,9 @@ public class MWaypoint extends MNamedElement
 		this.lon = lon;
 	}
 
+	@Override
+	public String toString()
+	{ 
+		return "Lat: " + this.lat + ", Lon: " + this.lon;
+	}
 }

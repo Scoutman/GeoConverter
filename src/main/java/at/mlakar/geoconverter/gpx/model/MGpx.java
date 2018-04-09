@@ -18,11 +18,11 @@ public class MGpx
 	
 	private String version;
 	@XmlElement(name = "wpt")
-	private List<MWaypoint> waypointList;
+	private List<MWaypoint> waypointList = new ArrayList<>();
 	@XmlElement(name = "rte")
 	private List<MRoute> routeList = new ArrayList<>();
 	@XmlElement(name = "trk")
-	private List<MTrack> trackList;
+	private List<MTrack> trackList = new ArrayList<>();
 		
 	
 	
@@ -37,25 +37,35 @@ public class MGpx
 		this.version = version;
 	}
 
-	public void setWaypointList(ArrayList<MWaypoint> waypointList)
-	{
-		this.waypointList = waypointList;
-	}
-
 	public List<MWaypoint> getWaypointsList()
 	{
 		return waypointList;
+	}	
+	
+	public void addWaypoint(MWaypoint waypoint)
+	{
+		this.waypointList.add(waypoint);
 	}
-
+	
 	public List<MRoute> getRoutesList()
 	{
 		return routeList;
-	}
-
-	public void addRouteList(MRoute routeList)
+	}	
+	
+	public void addRoute(MRoute routeList)
 	{
 		this.routeList.add(routeList);
 	}
 
+	public List<MTrack> getTracksList()
+	{
+		return trackList;
+	}
 
+	public void addTrack(MTrack track)
+	{
+		this.trackList.add(track);
+	}
+
+	
 }

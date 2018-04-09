@@ -29,12 +29,18 @@ import at.mlakar.geoconverter.geojson.model.MType;
 
 
 /**
- * Generiert aus JSON String ein Java Datenmodell.
+ * Generiert aus JSON String, im Geojson Format, ein Java Datenmodell <code>MGeojson</code>.
  *
  */
 public class GeojsonModelGenerator
 {
 
+	/**
+	 * Gibt erstelltes <code>MGeojson</code> Datenmodell zurück.
+	 * 
+	 * @param geojsonFile Pfad zu Geojson Datei. 
+	 * @return Datenmodell
+	 */
 	public MGeojson getModel(String geojsonFile)
 	{
 		MGeojson mGeojson = new MGeojson();
