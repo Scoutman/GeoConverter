@@ -1,13 +1,10 @@
 package at.mlakar.geoconverter.geojson.generator;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import at.mlakar.geoconverter.geojson.model.MGeojson;
+import at.mlakar.geoconverter.testhelper.FileHelper;
 import at.mlakar.geoconverter.testhelper.JsonResources;
 
 public class GeojsonGeneratorTest
@@ -29,35 +26,9 @@ public class GeojsonGeneratorTest
 		GeojsonGenerator geojsonGenerator = new GeojsonGenerator();
 		
 		String geojsonFromModel = geojsonGenerator.getJson(geojsonModel);
-		String geojsonFromFile = readJsonFile(JsonResources);
+		String geojsonFromFile = FileHelper.readFile(JsonResources);
 		
-		Assert.assertEquals(cleanJsonString(geojsonFromFile), cleanJsonString(geojsonFromModel));
+		Assert.assertEquals(FileHelper.cleanString(geojsonFromFile), FileHelper.cleanString(geojsonFromModel));
 	}
 	
-	private String readJsonFile(String geojsonFile)
-	{
-		String json = "";
-		
-		try
-		{
-			json = new String(Files.readAllBytes(Paths.get(geojsonFile)));
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		
-		return json;
-	}
-	
-	private String cleanJsonString(String json)
-	{
-		json = json.trim();
-		json = json.replace(" ", "");
-		json = json.replace("\r\n", "");
-		json = json.replace("\n", "");
-		json = json.replace("\t", "");
-		
-		return json;
-	}
 }
