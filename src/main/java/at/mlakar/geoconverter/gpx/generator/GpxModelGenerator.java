@@ -23,9 +23,6 @@ public class GpxModelGenerator
 		try
 		{
 			JAXBContext context = JAXBContext.newInstance(MGpx.class);
-			//Marshaller m = context.createMarshaller();
-			//m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-			
 			Unmarshaller um = context.createUnmarshaller();
 			mGpx = (MGpx) um.unmarshal(new FileReader(gpxFile));
 		}
