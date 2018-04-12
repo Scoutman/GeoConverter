@@ -17,6 +17,11 @@ public class MTrack extends MNamedElement
 
 	public void addSegment(MTrackSegment trackSegment)
 	{
+		if (trackSegment.getWaypointsList().size() == 0)
+		{
+			throw new IllegalArgumentException("MTrackSegment object is empty.");
+		}
+		
 		this.segmentList.add(trackSegment);
 	}
 	

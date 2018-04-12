@@ -17,6 +17,10 @@ public class MRoute extends MNamedElement
 
 	public void addWaypoint(MWaypoint waypoint)
 	{
+		if (waypoint.getLat() == null || waypoint.getLon() == null)
+		{
+			throw new IllegalArgumentException("MWaypoint object is empty.");
+		}		
 		this.waypointList.add(waypoint);
 	}
 	
