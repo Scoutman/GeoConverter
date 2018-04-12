@@ -26,7 +26,7 @@ public class GpxGeneratorTest
 		
 		String gpxFromModel = gpxGenerator.getGpx(this.mGpx);
 		String gpxFromFile = FileHelper.readFile(GpxResources.TESTFILE_GPX);
-		System.out.println(gpxFromModel);
+
 		Assert.assertEquals(FileHelper.cleanString(gpxFromFile), FileHelper.cleanString(gpxFromModel));
 	}
 	
