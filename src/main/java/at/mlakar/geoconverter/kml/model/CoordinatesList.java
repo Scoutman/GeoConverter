@@ -17,8 +17,7 @@ public class CoordinatesList
 
 		for (String stringCoordinate : splitCoordinate)
 		{
-			stringCoordinate = stringCoordinate.trim();
-			String c[] = stringCoordinate.split(",");
+			String c[] = stringCoordinate.trim().split(",");
 
 			Double lon = Double.valueOf(c[0]);
 			Double lat = Double.valueOf(c[1]);
@@ -32,7 +31,7 @@ public class CoordinatesList
 			{
 				altitude = 0;
 			}
-
+			
 			this.coordinateList.add(new Coordinate(lat, lon, altitude));
 		}
 	}
@@ -40,6 +39,11 @@ public class CoordinatesList
 	public void addCoordinate(Coordinate coordinate)
 	{
 		this.coordinateList.add(coordinate);
+	}
+	
+	public void removeCoordinate(int index)
+	{
+		this.coordinateList.remove(index);
 	}
 
 	public List<Coordinate> getCoordinateList()
