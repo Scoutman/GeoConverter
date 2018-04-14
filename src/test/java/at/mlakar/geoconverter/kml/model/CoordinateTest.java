@@ -11,7 +11,7 @@ public class CoordinateTest
 	@Test
 	public void addCoordinatesStringTest()
 	{	
-		CoordinatesList coordinatesList = new CoordinatesList();
+		MCoordinatesList coordinatesList = new MCoordinatesList();
 		coordinatesList.addCoordinatesString(coordinatesTest);
 		
 		Assert.assertEquals(new Double(15.36823720884101), coordinatesList.getCoordinateList().get(0).getLon());
@@ -30,7 +30,7 @@ public class CoordinateTest
 	@Test
 	public void toStringTest()
 	{
-		CoordinatesList coordinatesList = new CoordinatesList();
+		MCoordinatesList coordinatesList = new MCoordinatesList();
 		coordinatesList.addCoordinatesString(coordinatesTest);
 		
 		Assert.assertEquals("Lat: 47.32049307205572, Lon: 15.36823720884101, Altitude: 0", coordinatesList.getCoordinateList().get(0).toString());
@@ -41,7 +41,7 @@ public class CoordinateTest
 	{
 		String expected = "15.36823720884101,47.32049307205572,0 15.39491461657788,47.32533378450854,365 15.42652123606157,47.34382570030789,0 ";
 		
-		CoordinatesList coordinatesList = new CoordinatesList();
+		MCoordinatesList coordinatesList = new MCoordinatesList();
 		coordinatesList.addCoordinatesString(coordinatesTest);
 		
 		Assert.assertEquals(expected, coordinatesList.getCoordinatesListString());

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+    <name>rote wand.kml</name>
+
+
+    <Placemark>
+        <name>Parkplatz</name>
+        <LookAt>
+            <longitude>15.40829239767325</longitude>
+            <latitude>47.32393824406522</latitude>
+            <altitude>0</altitude>
+            <heading>0.00673745510445363</heading>
+            <tilt>0.1484889699615593</tilt>
+            <range>10245.74402577054</range>
+            <gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+        </LookAt>
+        <styleUrl>#m_ylw-pushpin</styleUrl>
+        <Point>
+            <gx:drawOrder>1</gx:drawOrder>
+            <coordinates>15.41053133592757,47.32031789178436,0</coordinates>
+        </Point>
+    </Placemark>
+
+
+    <Placemark>
+        <name>Alm</name>
+        <styleUrl>#msn_ylw-pushpin</styleUrl>
+        <Polygon>
+            <tessellate>1</tessellate>
+            <outerBoundaryIs>
+                <LinearRing>
+                    <coordinates>
+                        15.42237469183511,47.34496268904928,0 15.41234026496755,47.33662467556207,0 15.43215638755452,47.34045841098916,0 15.43614805522185,47.34746461559405,0 15.42237469183511,47.34496268904928,0 
+                    </coordinates>
+                </LinearRing>
+            </outerBoundaryIs>
+        </Polygon>
+    </Placemark>
+
+
+    <Folder>
+
+        <name>testordner</name>
+        <open>1</open>
+
+
+        <Placemark>
+            <name>rote wand</name>
+            <styleUrl>#msn_ylw-pushpin0</styleUrl>
+            <LineString>
+                <coordinates>
+                    15.37050775836117,47.31864876896782,0 15.39723052015837,47.32073633881383,0 15.3922194196361,47.32693488748131,0 15.40612251079342,47.33335037319069,0 
+                </coordinates>
+            </LineString>
+        </Placemark>
+
+
+        <Placemark>
+            <name>Pfad ohne Namen</name>
+            <styleUrl>#msn_ylw-pushpin0</styleUrl>
+            <LineString>
+                <tessellate>1</tessellate>
+                <coordinates>
+                    15.36396259040279,47.3285589234826,0 15.37853333371258,47.33757941584852,0 15.40121327049888,47.34394798636011,0 
+                </coordinates>
+            </LineString>
+        </Placemark>
+
+
+    </Folder>
+
+
+</Document>
+</kml>

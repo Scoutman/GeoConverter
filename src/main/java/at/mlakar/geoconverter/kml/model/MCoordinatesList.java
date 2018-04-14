@@ -3,9 +3,9 @@ package at.mlakar.geoconverter.kml.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CoordinatesList
+public class MCoordinatesList
 {
-	private List<Coordinate> coordinateList = new ArrayList<>();
+	private List<MCoordinate> coordinateList = new ArrayList<>();
 
 	
 	public void addCoordinatesString(String coordinateString)
@@ -32,11 +32,11 @@ public class CoordinatesList
 				altitude = 0;
 			}
 			
-			this.coordinateList.add(new Coordinate(lat, lon, altitude));
+			this.coordinateList.add(new MCoordinate(lat, lon, altitude));
 		}
 	}
 
-	public void addCoordinate(Coordinate coordinate)
+	public void addCoordinate(MCoordinate coordinate)
 	{
 		this.coordinateList.add(coordinate);
 	}
@@ -46,7 +46,7 @@ public class CoordinatesList
 		this.coordinateList.remove(index);
 	}
 
-	public List<Coordinate> getCoordinateList()
+	public List<MCoordinate> getCoordinateList()
 	{
 		return coordinateList;
 	}
@@ -55,7 +55,7 @@ public class CoordinatesList
 	{
 		StringBuilder coordinatesString = new StringBuilder();
 		
-		for (Coordinate coordinate : coordinateList)
+		for (MCoordinate coordinate : coordinateList)
 		{
 			coordinatesString.append(coordinate.getLon()).append(",");
 			coordinatesString.append(coordinate.getLat()).append(",");

@@ -1,16 +1,16 @@
 package at.mlakar.geoconverter.kml.model;
 
-public class Coordinate
+public class MCoordinate
 {
 	private Double lat;
 	private Double lon;
 	private int altitude;
 
-	public Coordinate()
+	public MCoordinate()
 	{
 	}
 
-	public Coordinate(Double lat, Double lon, int altitude)
+	public MCoordinate(Double lat, Double lon, int altitude)
 	{
 		this.lat = lat;
 		this.lon = lon;
