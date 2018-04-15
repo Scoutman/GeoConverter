@@ -1,19 +1,24 @@
 package at.mlakar.geoconverter.kml.model;
 
-import javax.xml.bind.annotation.XmlElementRef;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlElement;
 
 public class MFolder extends MFeature
 {
-	private MGeometry mGeometry;
-
-	@XmlElementRef
-	public MGeometry getGeometry()
+	@XmlElement(name = "Placemark")
+	private List<MPlacemark> placemarkList = new ArrayList<>();
+	
+	
+	public List<MPlacemark> getPlacemarkList()
 	{
-		return mGeometry;
+		return placemarkList;
 	}
 
-	public void setGeometry(MGeometry mGeometry)
+	public void addPlacemark(MPlacemark placemark)
 	{
-		this.mGeometry = mGeometry;
+		this.placemarkList.add(placemark);
 	}
+	
 }

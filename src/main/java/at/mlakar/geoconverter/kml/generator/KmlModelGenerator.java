@@ -39,7 +39,6 @@ public class KmlModelGenerator
 			Unmarshaller unmarshaller = jc.createUnmarshaller();
 			mKml = (MKml) unmarshaller.unmarshal(xsr);
 			
-					
 		}
 		catch (JAXBException | FileNotFoundException e)
 		{
@@ -47,7 +46,6 @@ public class KmlModelGenerator
 		}
 		catch (javax.xml.stream.XMLStreamException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

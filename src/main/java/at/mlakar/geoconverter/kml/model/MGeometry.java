@@ -10,15 +10,19 @@ public class MGeometry
 
 	
 	@XmlElement(name = "coordinates")
-	public String getCoordinatesList()
+	public String getCoordinateList()
 	{
 		return mCoordinatesList.getCoordinatesListString();
 	}
 	
-	@XmlElement(name = "coordinates")
 	public void setCoordinateList(String coordinateString)
 	{
 		mCoordinatesList.addCoordinatesString(coordinateString);
+	}
+	
+	public MCoordinatesList getCoordinates()
+	{
+		return this.mCoordinatesList;
 	}
 	
 	public void addCoordinate(MCoordinate coordinate)

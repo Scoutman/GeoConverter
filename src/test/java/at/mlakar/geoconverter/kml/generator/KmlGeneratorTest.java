@@ -1,49 +1,34 @@
 package at.mlakar.geoconverter.kml.generator;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-import at.mlakar.geoconverter.kml.model.MCoordinate;
-import at.mlakar.geoconverter.kml.model.MDocument;
-import at.mlakar.geoconverter.kml.model.MFolder;
 import at.mlakar.geoconverter.kml.model.MKml;
-import at.mlakar.geoconverter.kml.model.MLinearRing;
-import at.mlakar.geoconverter.kml.model.MPlacemark;
+import at.mlakar.geoconverter.testhelper.FileHelper;
+import at.mlakar.geoconverter.testhelper.KmlResources;
 
 public class KmlGeneratorTest
 {
-
-	@Test
-	public void test()
+	private MKml mKmlFromModel;
+	
+	
+	@Before
+	public void beforeFromModel()
 	{
-		MKml mKml = new MKml();
-		
-		//MLineString mPoint = new MLineString();
-		MLinearRing mPoint = new MLinearRing();
-		
-		MCoordinate mCoordinate = new MCoordinate(new Double(47.123), new Double(15.456), 360);
-		mPoint.addCoordinate(mCoordinate);
-		
-		MFolder mFolder = new MFolder();
-		mFolder.setGeometry(mPoint);
-		mFolder.setName("ich bin a Folder");
-		
-		MPlacemark mPlacemark = new MPlacemark();
-		mPlacemark.setName("ich bin placemark");
-		mPlacemark.setGeometry(mPoint);
-		
-		
-		MDocument mDocument = new MDocument();
-		mDocument.setName("ich bin ein document");
-		mDocument.addPlacemark(mPlacemark);
-		mDocument.addFolder(mFolder);
-		
-		mKml.setDocument(mDocument);
-		
-		
-		KmlGenerator kmlGenerator = new KmlGenerator();
-		String kml = kmlGenerator.getKml(mKml);
-		
-		System.out.println(kml);
+		KmlModelGenerator kmlModelGenerator = new KmlModelGenerator();
+		mKmlFromModel = kmlModelGenerator.getModel(KmlResources.TESTFILE_KML);		
 	}
 
+	@Test
+	public void kmlGeneratorTest()
+	{
+		KmlGenerator kmlGenerator = new KmlGenerator();
+		
+		String kmlFromModel = kmlGenerator.getKml(this.mKmlFromModel);
+		String kmlFromFile = FileHelper.readFile(KmlResources.TESTFILE_KML);
+
+		Assert.assertEquals(FileHelper.cleanString(kmlFromFile), FileHelper.cleanString(kmlFromModel));
+	}	
+		
 }
