@@ -3,8 +3,10 @@ package at.mlakar.geoconverter.kml.model;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import at.mlakar.geoconverter.generator.XmlModel;
+
 @XmlRootElement(name="kml")
-public class MKml
+public class MKml implements XmlModel
 {
 	
 	private MDocument mDocument = new MDocument();

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import at.mlakar.geoconverter.generator.ModelGenerator;
 import at.mlakar.geoconverter.kml.model.MKml;
 import at.mlakar.geoconverter.testhelper.FileHelper;
 import at.mlakar.geoconverter.testhelper.KmlResources;
@@ -16,8 +17,8 @@ public class KmlGeneratorTest
 	@Before
 	public void beforeFromModel()
 	{
-		KmlModelGenerator kmlModelGenerator = new KmlModelGenerator();
-		mKmlFromModel = kmlModelGenerator.getModel(KmlResources.TESTFILE_KML);		
+		ModelGenerator<MKml> kmlModelGenerator = new KmlModelGenerator<>(MKml.class);
+		mKmlFromModel = kmlModelGenerator.getModel(KmlResources.TESTFILE_KML);
 	}
 
 	@Test

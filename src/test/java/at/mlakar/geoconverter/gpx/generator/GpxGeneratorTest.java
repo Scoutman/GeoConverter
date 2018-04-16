@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import at.mlakar.geoconverter.generator.ModelGenerator;
 import at.mlakar.geoconverter.gpx.model.MGpx;
 import at.mlakar.geoconverter.testhelper.FileHelper;
 import at.mlakar.geoconverter.testhelper.GpxResources;
@@ -15,7 +16,7 @@ public class GpxGeneratorTest
 	@Before
 	public void before()
 	{
-		GpxModelGenerator gpxModelGenerator = new GpxModelGenerator();
+		ModelGenerator<MGpx> gpxModelGenerator = new GpxModelGenerator<>(MGpx.class);
 		mGpx = gpxModelGenerator.getModel(GpxResources.TESTFILE_GPX);
 	}
 

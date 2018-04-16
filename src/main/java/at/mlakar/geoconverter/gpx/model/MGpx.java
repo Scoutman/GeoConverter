@@ -7,9 +7,11 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import at.mlakar.geoconverter.generator.XmlModel;
+
 
 @XmlRootElement(name="gpx")
-public class MGpx
+public class MGpx implements XmlModel
 {
 	private String version;
 	
