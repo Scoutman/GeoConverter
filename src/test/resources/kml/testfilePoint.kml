@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml>
+    <Document>
+        <name>Punkt, Route und Polygon Test</name>
+        <Placemark>
+            <name>Hochlantsch</name>
+            <Point>
+                <coordinates>15.423645,47.362176,1720 </coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Route Rote Wand</name>
+            <LineString>
+                <coordinates>15.36869054453513,47.32113549139689,0 15.39147691669904,47.32754731084825,0 15.40369884168651,47.33228691802673,0 </coordinates>
+            </LineString>
+        </Placemark>
+        <Placemark>
+            <name>Tyrnauer Alm</name>
+            <LinearRing>
+                <coordinates>15.42138288166528,47.34776178510898,0 15.42680263822824,47.33994511674428,0 15.44210783210553,47.3433327980027,0 15.43027664029841,47.35022485830221,0 15.42138288166528,47.34776178510898,0 </coordinates>
+            </LinearRing>
+        </Placemark>                
+    </Document>
+</kml>
