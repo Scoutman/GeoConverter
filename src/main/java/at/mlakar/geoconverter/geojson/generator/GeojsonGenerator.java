@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import at.mlakar.geoconverter.geojson.model.GeojsonElement;
 import at.mlakar.geoconverter.geojson.model.MCoordinate;
 import at.mlakar.geoconverter.geojson.model.MCoordinateList;
 import at.mlakar.geoconverter.geojson.model.MCoordinatePosition;
@@ -27,7 +28,7 @@ import at.mlakar.geoconverter.geojson.model.MType;
  * Generiert aus Java Datenmodell ein JSON String. 
  *
  */
-public class GeojsonGenerator
+public class GeojsonGenerator implements GeojsonGeneratorInterface
 {
 
 	public String getJson(MGeojson geojsonModel)
@@ -39,12 +40,12 @@ public class GeojsonGenerator
 		return gson.toJson(jsonObject);
 	}
 
-	private JsonObject visitGeojson(MGeojson geojson)
+	public JsonObject visitGeojson(MGeojson geojson)
 	{
 		JsonObject jsonObject = new JsonObject();
 		JsonArray featureArray = new JsonArray();
 		
-		jsonObject.addProperty("type", "FeatureCollection");
+		jsonObject.addProperty(GeojsonElement.TYPE, GeojsonElement.FEATURE_COLLECTION);
 		
 		List<MFeature> featuresList = geojson.getFeaturesList();
 		
@@ -54,32 +55,32 @@ public class GeojsonGenerator
 			featureArray.add(featureObject);
 		}
 		
-		jsonObject.add("features", featureArray);
+		jsonObject.add(GeojsonElement.FEATURES, featureArray);
 		
 		return jsonObject;
 	}
 
-	private JsonObject visitFeature(MFeature feature)
+	public JsonObject visitFeature(MFeature feature)
 	{
 		JsonObject jsonObject = new JsonObject();
 		JsonObject jsonProperties = new JsonObject();
 		JsonObject jsonGeometry = new JsonObject();
 		
-		jsonObject.addProperty("type", "Feature");
+		jsonObject.addProperty(GeojsonElement.TYPE, GeojsonElement.FEATURE);
 		
 		if (feature.getProperties() != null)
 		{	
 			jsonProperties = visitProperties(feature.getProperties());
-			jsonObject.add("properties", jsonProperties);
+			jsonObject.add(GeojsonElement.PROPERTIES, jsonProperties);
 		}
 		
 		jsonGeometry = visitGeometry(feature.getGeometry());
-		jsonObject.add("geometry", jsonGeometry);
+		jsonObject.add(GeojsonElement.GEOMETRY, jsonGeometry);
 		
 		return jsonObject;
 	}
 
-	private JsonObject visitProperties(List<MProperty> propertiesList)
+	public JsonObject visitProperties(List<MProperty> propertiesList)
 	{
 		JsonObject jsonObject = new JsonObject();
 		
@@ -94,25 +95,25 @@ public class GeojsonGenerator
 		return jsonObject;
 	}
 
-	private JsonObject visitGeometry(MGeometry geometry)
+	public JsonObject visitGeometry(MGeometry geometry)
 	{
 		JsonObject jsonObject = new JsonObject();
 		JsonArray jsonCoordinate = new JsonArray();
 		
 		String type = visitType(geometry.getType());
-		jsonObject.addProperty("type", type);
+		jsonObject.addProperty(GeojsonElement.TYPE, type);
 		
 		jsonCoordinate = visitCoordinate(geometry.getCoordinates());
 		
 		// Löschen des äußersten Arrays. Ansonsten ist JSON eine Ebene zu tief verschachtelt. 
 		jsonCoordinate = (JsonArray) jsonCoordinate.get(0);
 		
-		jsonObject.add("coordinates", jsonCoordinate);
+		jsonObject.add(GeojsonElement.COORDINATES, jsonCoordinate);
 				
 		return jsonObject;
 	}
 	
-	private JsonArray visitCoordinate(MCoordinate coordinates)
+	public JsonArray visitCoordinate(MCoordinate coordinates)
 	{
 		JsonArray jsonArray = new JsonArray();	
 
@@ -138,31 +139,31 @@ public class GeojsonGenerator
 		return jsonArray;
 	}		
 	
-	private String visitType(MType type)
+	public String visitType(MType type)
 	{
 		if (type instanceof MPoint)
 		{
-			return "Point";
+			return GeojsonElement.POINT;
 		}
 		else if (type instanceof MMultiPoint)
 		{
-			return "MultiPoint";
+			return GeojsonElement.MULTI_POINT;
 		}
 		else if (type instanceof MLineString) 
 		{
-			return "LineString";
+			return GeojsonElement.LINE_STRING;
 		}
 		else if (type instanceof MMultiLineString) 
 		{
-			return "MultiLineString";
+			return GeojsonElement.MULTI_LINE_STRING;
 		}
 		else if (type instanceof MPolygon)
 		{
-			return "Polygon";
+			return GeojsonElement.POLYGON;
 		}
 		else if (type instanceof MMultiPolygon)
 		{
-			return "MultiPolygon";
+			return GeojsonElement.MULTI_POLYGON;
 		}
 		else
 		{

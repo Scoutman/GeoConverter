@@ -12,6 +12,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import at.mlakar.geoconverter.geojson.model.GeojsonElement;
 import at.mlakar.geoconverter.geojson.model.MCoordinate;
 import at.mlakar.geoconverter.geojson.model.MCoordinateList;
 import at.mlakar.geoconverter.geojson.model.MCoordinatePosition;
@@ -32,7 +33,7 @@ import at.mlakar.geoconverter.geojson.model.MType;
  * Generiert aus JSON String, im Geojson Format, ein Java Datenmodell <code>MGeojson</code>.
  *
  */
-public class GeojsonModelGenerator
+public class GeojsonModelGenerator implements GeojsonModelGeneratorInterface
 {
 
 	/**
@@ -64,10 +65,10 @@ public class GeojsonModelGenerator
 		return mGeojson;		
 	}
 	
-	private List<MFeature> parseFeatures(JsonObject o)
+	public List<MFeature> parseFeatures(JsonObject o)
 	{
 		List<MFeature> featuresList = new ArrayList<>();
-		JsonArray featuresElement = o.get("features").getAsJsonArray();
+		JsonArray featuresElement = o.get(GeojsonElement.FEATURES).getAsJsonArray();
 		
 		for (JsonElement featureElement : featuresElement)
 		{
@@ -85,9 +86,9 @@ public class GeojsonModelGenerator
 		return featuresList;
 	}
 	
-	private List<MProperty> parseProperties(JsonElement e)
+	public List<MProperty> parseProperties(JsonElement e)
 	{
-		JsonElement propertiesElement = e.getAsJsonObject().get("properties");
+		JsonElement propertiesElement = e.getAsJsonObject().get(GeojsonElement.PROPERTIES);
 		List<MProperty> propertiesList = new ArrayList<>();
 		
 		// Keine properties in JSON vorhanden
@@ -109,11 +110,11 @@ public class GeojsonModelGenerator
 		return propertiesList;		
 	}
 	
-	private MGeometry parseGeometry(JsonElement e)
+	public MGeometry parseGeometry(JsonElement e)
 	{
-		JsonElement geometryElement = e.getAsJsonObject().get("geometry");
+		JsonElement geometryElement = e.getAsJsonObject().get(GeojsonElement.GEOMETRY);
 		
-		String typeElement = geometryElement.getAsJsonObject().get("type").getAsString();
+		String typeElement = geometryElement.getAsJsonObject().get(GeojsonElement.TYPE).getAsString();
 		MType type = parseGeometryType(typeElement);
 		MGeometry geometry = new MGeometry(type);
 		
@@ -123,9 +124,9 @@ public class GeojsonModelGenerator
 		return geometry;
 	}
 
-	private MCoordinate parseCoordinates(JsonElement e)
+	public MCoordinate parseCoordinates(JsonElement e)
 	{
-		JsonElement coordinatesElement = e.getAsJsonObject().get("coordinates");
+		JsonElement coordinatesElement = e.getAsJsonObject().get(GeojsonElement.COORDINATES);
 		MCoordinate coordinatesList = new MCoordinateList();
 		
 		coordinatesList.addCoordinateList(parseCoordinateList(coordinatesElement));
@@ -133,7 +134,7 @@ public class GeojsonModelGenerator
 		return coordinatesList;
 	}
 	
-	private MCoordinate parseCoordinateList(JsonElement e)
+	public MCoordinate parseCoordinateList(JsonElement e)
 	{
 		MCoordinate coordinatesList = new MCoordinateList();
 		
@@ -165,26 +166,26 @@ public class GeojsonModelGenerator
 		return coordinatesList;
 	}
 	
-	private MType parseGeometryType(String type)
+	public MType parseGeometryType(String type)
 	{
 		switch (type)
 		{
-			case "Point":
+			case GeojsonElement.POINT:
 				return new MPoint();
 			
-			case "MultiPoint":
+			case GeojsonElement.MULTI_POINT:
 				return new MMultiPoint();
 				
-			case "LineString":
+			case GeojsonElement.LINE_STRING:
 				return new MLineString();
 				
-			case "MultiLineString":
+			case GeojsonElement.MULTI_LINE_STRING:
 				return new MMultiLineString();
 				
-			case "Polygon":
+			case GeojsonElement.POLYGON:
 				return new MPolygon();
 				
-			case "MultiPolygon":
+			case GeojsonElement.MULTI_POLYGON:
 				return new MMultiPolygon();
 
 			default:

@@ -11,6 +11,11 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.stream.StreamSource;
 
+/**
+ * Abstrakter Modell Generator für XML Strukturen. 
+ *
+ * @param <T>
+ */
 public abstract class ModelGenerator<T extends XmlModel>
 {
 	private Class<T> type;
