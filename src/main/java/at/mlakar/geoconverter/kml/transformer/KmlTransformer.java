@@ -14,6 +14,7 @@ import at.mlakar.geoconverter.geojson.model.MPoint;
 import at.mlakar.geoconverter.geojson.model.MPolygon;
 import at.mlakar.geoconverter.geojson.model.MProperty;
 import at.mlakar.geoconverter.kml.model.MCoordinatesList;
+import at.mlakar.geoconverter.kml.model.MFolder;
 import at.mlakar.geoconverter.kml.model.MKml;
 import at.mlakar.geoconverter.kml.model.MLineString;
 import at.mlakar.geoconverter.kml.model.MLinearRing;
@@ -28,7 +29,22 @@ public class KmlTransformer
 		List<MFeature> mFeatureList = visitPlacemark(mKml.getDocument().getPlacemarkList());
 		mGeojson.setFeatureList(mFeatureList);
 
+		List<MFeature> mFolderFeatureList = visitFolder(mKml.getDocument().getFolderList());
+		mGeojson.getFeaturesList().addAll(mFolderFeatureList);
+
 		return mGeojson;
+	}
+
+	private List<MFeature> visitFolder(List<MFolder> folderList)
+	{
+		List<MFeature> geojsonFeatureList = new ArrayList<>();
+
+		for (MFolder mFolder : folderList)
+		{
+			geojsonFeatureList.addAll(visitPlacemark(mFolder.getPlacemarkList()));
+		}
+
+		return geojsonFeatureList;
 	}
 
 	private List<MFeature> visitPlacemark(List<MPlacemark> kmlPLacemarkList)
