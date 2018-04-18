@@ -22,6 +22,12 @@ import at.mlakar.geoconverter.kml.model.MPlacemark;
 
 public class KmlTransformer
 {
+	/**
+	 * Transfomiert KML in GeoJSON Datenmodell.
+	 * 
+	 * @param mKml
+	 * @return
+	 */
 	public MGeojson getGeojsonModel(MKml mKml)
 	{
 		MGeojson mGeojson = new MGeojson();

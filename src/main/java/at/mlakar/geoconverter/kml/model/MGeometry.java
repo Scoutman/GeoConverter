@@ -25,6 +25,11 @@ public class MGeometry
 		return this.mCoordinatesList;
 	}
 	
+	public void setCoordinateObjectList(MCoordinatesList mCoordinatesList)
+	{
+		this.mCoordinatesList = mCoordinatesList;
+	}
+	
 	public void addCoordinate(MCoordinate coordinate)
 	{
 		this.mCoordinatesList.addCoordinate(coordinate);
