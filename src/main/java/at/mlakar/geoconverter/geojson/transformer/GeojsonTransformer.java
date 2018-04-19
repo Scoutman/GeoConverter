@@ -3,6 +3,7 @@ package at.mlakar.geoconverter.geojson.transformer;
 import java.util.ArrayList;
 import java.util.List;
 
+import at.mlakar.geoconverter.geojson.model.GeojsonElement;
 import at.mlakar.geoconverter.geojson.model.MCoordinate;
 import at.mlakar.geoconverter.geojson.model.MCoordinatePosition;
 import at.mlakar.geoconverter.geojson.model.MFeature;
@@ -70,7 +71,7 @@ public class GeojsonTransformer
 	{
 		for (MProperty geojsonProperty : properties)
 		{
-			if (geojsonProperty.getName().equals("name"))
+			if (geojsonProperty.getName().equals(GeojsonElement.NAME))
 			{
 				return geojsonProperty.getValue();
 			}
