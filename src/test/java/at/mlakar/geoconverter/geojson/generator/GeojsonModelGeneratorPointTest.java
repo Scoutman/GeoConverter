@@ -12,6 +12,7 @@ import at.mlakar.geoconverter.geojson.model.MGeojson;
 import at.mlakar.geoconverter.geojson.model.MPoint;
 import at.mlakar.geoconverter.geojson.model.MProperty;
 import at.mlakar.geoconverter.geojson.model.MType;
+import at.mlakar.geoconverter.testhelper.FileHelper;
 import at.mlakar.geoconverter.testhelper.JsonResources;
 
 public class GeojsonModelGeneratorPointTest
@@ -22,11 +23,14 @@ public class GeojsonModelGeneratorPointTest
 	@Before
 	public void before()
 	{
+		String jsonPoint = FileHelper.readFile(JsonResources.POINT_JSON);
+		String jsonNoPropertiesPoint = FileHelper.readFile(JsonResources.POINT_NO_PROPERTIES_JSON);
+		
 		GeojsonModelGenerator modelGenerator = new GeojsonModelGenerator();
-		geojsonModel = modelGenerator.getModel(JsonResources.POINT_JSON);
+		geojsonModel = modelGenerator.getModel(jsonPoint);
 		
 		GeojsonModelGenerator modelGenerator2 = new GeojsonModelGenerator();
-		geojsonModelNoProperties = modelGenerator2.getModel(JsonResources.POINT_NO_PROPERTIES_JSON);
+		geojsonModelNoProperties = modelGenerator2.getModel(jsonNoPropertiesPoint);
 	}
 	
 	@Test

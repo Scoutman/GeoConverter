@@ -17,8 +17,10 @@ public class KmlGeneratorTest
 	@Before
 	public void beforeFromModel()
 	{
+		String xmlString = FileHelper.readFile(KmlResources.TESTFILE_KML);
+		
 		ModelGenerator<MKml> kmlModelGenerator = new KmlModelGenerator<>(MKml.class);
-		mKmlFromModel = kmlModelGenerator.getModel(KmlResources.TESTFILE_KML);
+		mKmlFromModel = kmlModelGenerator.getModel(xmlString);
 	}
 
 	@Test

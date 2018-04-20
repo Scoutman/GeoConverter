@@ -1,15 +1,11 @@
 package at.mlakar.geoconverter.generator;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.StringReader;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
-import javax.xml.transform.stream.StreamSource;
 
 /**
  * Abstrakter Modell Generator für XML Strukturen. 
@@ -33,11 +29,11 @@ public abstract class ModelGenerator<T extends XmlModel>
 	/**
 	 * Gibt erstelltes Datenmodell zurück.
 	 * 
-	 * @param xmlFile
+	 * @param xmlString
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public final <E extends XmlModel> T getModel(String xmlFile)
+	public final <E extends XmlModel> T getModel(String xmlString)
 	{
 		T xmlModel = null;
 
@@ -45,14 +41,13 @@ public abstract class ModelGenerator<T extends XmlModel>
 		{
 			JAXBContext jaxbContext = JAXBContext.newInstance(this.type);
 			XMLInputFactory inputFactory = XMLInputFactory.newFactory();
-			inputFactory.setProperty(XMLInputFactory.IS_NAMESPACE_AWARE, false);
-			StreamSource streamSource = new StreamSource(new FileReader(xmlFile));
-			XMLStreamReader streamReader = inputFactory.createXMLStreamReader(streamSource);
+			inputFactory.setProperty(XMLInputFactory.IS_NAMESPACE_AWARE, false);		
+			StringReader stringReader = new StringReader(xmlString);		
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-			xmlModel = (T) unmarshaller.unmarshal(streamReader);
+			xmlModel = (T) unmarshaller.unmarshal(stringReader);
 
 		}
-		catch (JAXBException | FileNotFoundException | XMLStreamException e)
+		catch (JAXBException e)
 		{
 			e.printStackTrace();
 		}

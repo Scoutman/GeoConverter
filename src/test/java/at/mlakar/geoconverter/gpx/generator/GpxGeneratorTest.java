@@ -16,8 +16,10 @@ public class GpxGeneratorTest
 	@Before
 	public void before()
 	{
+		String xmlString = FileHelper.readFile(GpxResources.TESTFILE_GPX);
+		
 		ModelGenerator<MGpx> gpxModelGenerator = new GpxModelGenerator<>(MGpx.class);
-		mGpx = gpxModelGenerator.getModel(GpxResources.TESTFILE_GPX);
+		mGpx = gpxModelGenerator.getModel(xmlString);
 	}
 
 	@Test

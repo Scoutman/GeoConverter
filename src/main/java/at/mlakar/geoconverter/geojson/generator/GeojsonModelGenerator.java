@@ -1,8 +1,5 @@
 package at.mlakar.geoconverter.geojson.generator;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
@@ -39,25 +36,15 @@ public class GeojsonModelGenerator implements GeojsonModelGeneratorInterface
 	/**
 	 * Gibt erstelltes <code>MGeojson</code> Datenmodell zurück.
 	 * 
-	 * @param geojsonFile Pfad zu Geojson Datei. 
+	 * @param jsonString Geojson String
 	 * @return Datenmodell
 	 */
-	public MGeojson getModel(String geojsonFile)
+	public MGeojson getModel(String jsonString)
 	{
 		MGeojson mGeojson = new MGeojson();
-		String json = "";
-		
-		try
-		{
-			json = new String(Files.readAllBytes(Paths.get(geojsonFile)));
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
 		
 		JsonParser parser = new JsonParser();
-		JsonObject jsonRootObject = parser.parse(json).getAsJsonObject();		
+		JsonObject jsonRootObject = parser.parse(jsonString).getAsJsonObject();		
 		
 		List<MFeature> featureList = parseFeatures(jsonRootObject);
 		mGeojson.setFeatureList(featureList);

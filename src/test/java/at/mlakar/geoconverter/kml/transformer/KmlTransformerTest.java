@@ -7,6 +7,7 @@ import at.mlakar.geoconverter.geojson.generator.GeojsonGenerator;
 import at.mlakar.geoconverter.geojson.model.MGeojson;
 import at.mlakar.geoconverter.kml.generator.KmlModelGenerator;
 import at.mlakar.geoconverter.kml.model.MKml;
+import at.mlakar.geoconverter.testhelper.FileHelper;
 import at.mlakar.geoconverter.testhelper.KmlResources;
 
 public class KmlTransformerTest
@@ -15,8 +16,10 @@ public class KmlTransformerTest
 	@Test
 	public void test()
 	{
+		String xmlString = FileHelper.readFile(KmlResources.TESTFILE_KML);
+		
 		ModelGenerator<MKml> kmlModelGenerator = new KmlModelGenerator<>(MKml.class);
-		MKml mKml = kmlModelGenerator.getModel(KmlResources.TESTFILE_KML);
+		MKml mKml = kmlModelGenerator.getModel(xmlString);
 		
 		KmlTransformer kmlTransformer = new KmlTransformer();
 		MGeojson mGeojson = kmlTransformer.getGeojsonModel(mKml);

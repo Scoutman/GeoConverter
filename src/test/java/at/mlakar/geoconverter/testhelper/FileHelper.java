@@ -8,18 +8,18 @@ public class FileHelper
 {
 	public static String readFile(String file)
 	{
-		String json = "";
+		String fileContent = "";
 
 		try
 		{
-			json = new String(Files.readAllBytes(Paths.get(file)));
+			fileContent = new String(Files.readAllBytes(Paths.get(file)));
 		}
 		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
 
-		return json;
+		return fileContent;
 	}
 
 	public static String cleanString(String str)

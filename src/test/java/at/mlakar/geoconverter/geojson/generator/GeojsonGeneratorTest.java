@@ -21,8 +21,10 @@ public class GeojsonGeneratorTest
 	
 	private void fileTestHelper(String JsonResources)
 	{
+		String jsonString = FileHelper.readFile(JsonResources);
+		
 		GeojsonModelGenerator modelGenerator = new GeojsonModelGenerator();
-		MGeojson geojsonModel = modelGenerator.getModel(JsonResources);	
+		MGeojson geojsonModel = modelGenerator.getModel(jsonString);	
 		GeojsonGenerator geojsonGenerator = new GeojsonGenerator();
 		
 		String geojsonFromModel = geojsonGenerator.getJson(geojsonModel);
