@@ -20,7 +20,7 @@ import at.mlakar.geoconverter.kml.model.MKml;
 import at.mlakar.geoconverter.kml.model.MLinearRing;
 import at.mlakar.geoconverter.kml.model.MPlacemark;
 
-public class GeojsonTransformer
+public class GeojsonKmlTransformer
 {
 	public MKml getKmlModel(MGeojson mGeojson)
 	{
@@ -95,9 +95,8 @@ public class GeojsonTransformer
 
 		return kmlGeometry;
 	}
-
-	private MCoordinatesList visitCoordinates(List<MCoordinate> geojsonCoordinateList,
-			Class<? extends MGeometry> geometryTypeClass)
+	
+	private MCoordinatesList visitCoordinates(List<MCoordinate> geojsonCoordinateList, Class<? extends MGeometry> geometryTypeClass)
 	{
 		MCoordinatesList kmlCoordinatesList = new MCoordinatesList();
 

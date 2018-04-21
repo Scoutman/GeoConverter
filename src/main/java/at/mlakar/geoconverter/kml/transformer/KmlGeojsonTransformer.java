@@ -20,7 +20,7 @@ import at.mlakar.geoconverter.kml.model.MLineString;
 import at.mlakar.geoconverter.kml.model.MLinearRing;
 import at.mlakar.geoconverter.kml.model.MPlacemark;
 
-public class KmlTransformer
+public class KmlGeojsonTransformer
 {
 	/**
 	 * Transfomiert KML in GeoJSON Datenmodell.

@@ -4,12 +4,12 @@ import org.junit.Test;
 
 import at.mlakar.geoconverter.geojson.generator.GeojsonModelGenerator;
 import at.mlakar.geoconverter.geojson.model.MGeojson;
-import at.mlakar.geoconverter.kml.generator.KmlGenerator;
-import at.mlakar.geoconverter.kml.model.MKml;
+import at.mlakar.geoconverter.gpx.generator.GpxGenerator;
+import at.mlakar.geoconverter.gpx.model.MGpx;
 import at.mlakar.geoconverter.testhelper.FileHelper;
 import at.mlakar.geoconverter.testhelper.JsonResources;
 
-public class GeojsonTransformerTest
+public class GeojsonGpxTransformerTest
 {
 
 	@Test
@@ -19,15 +19,14 @@ public class GeojsonTransformerTest
 		
 		GeojsonModelGenerator geojsonModelGeneratorGenerator = new GeojsonModelGenerator();
 		MGeojson mGeojson = geojsonModelGeneratorGenerator.getModel(jsonString);
-
-		GeojsonTransformer geojsonTransformer = new GeojsonTransformer();
-		MKml mKml = geojsonTransformer.getKmlModel(mGeojson);
 		
-		KmlGenerator kmlGenerator = new KmlGenerator();
-		String kmlString = kmlGenerator.getKml(mKml);
+		GeojsonGpxTransformer geojsonGpxTransformer = new GeojsonGpxTransformer();
+		MGpx mGpx = geojsonGpxTransformer.getModel(mGeojson);
 		
-		System.out.println(kmlString);
-
+		GpxGenerator gpxGenerator = new GpxGenerator();
+		String gpxString = gpxGenerator.getGpx(mGpx);
+		
+		System.out.println(gpxString);
 	}
 
 }

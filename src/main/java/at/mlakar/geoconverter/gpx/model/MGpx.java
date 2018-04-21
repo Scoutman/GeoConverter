@@ -13,7 +13,7 @@ import at.mlakar.geoconverter.generator.XmlModel;
 @XmlRootElement(name="gpx")
 public class MGpx implements XmlModel
 {
-	private String version;
+	private String version = "1.1";
 	
 	@XmlElement(name = "wpt")
 	private List<MWaypoint> waypointList = new ArrayList<>();

@@ -21,7 +21,7 @@ public class KmlTransformerTest
 		ModelGenerator<MKml> kmlModelGenerator = new KmlModelGenerator<>(MKml.class);
 		MKml mKml = kmlModelGenerator.getModel(xmlString);
 		
-		KmlTransformer kmlTransformer = new KmlTransformer();
+		KmlGeojsonTransformer kmlTransformer = new KmlGeojsonTransformer();
 		MGeojson mGeojson = kmlTransformer.getGeojsonModel(mKml);
 		
 	
