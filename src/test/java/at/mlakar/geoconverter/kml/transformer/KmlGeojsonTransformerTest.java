@@ -10,7 +10,7 @@ import at.mlakar.geoconverter.kml.model.MKml;
 import at.mlakar.geoconverter.testhelper.FileHelper;
 import at.mlakar.geoconverter.testhelper.KmlResources;
 
-public class KmlTransformerTest
+public class KmlGeojsonTransformerTest
 {
 
 	@Test

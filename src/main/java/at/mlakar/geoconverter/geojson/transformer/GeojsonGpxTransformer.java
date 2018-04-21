@@ -96,7 +96,7 @@ public class GeojsonGpxTransformer
 		return gpxRouteList;
 	}	
 
-	private List<MWaypoint> visitCoordinates(List<MCoordinate> geojsonCoordinateList, Class<? extends MType> geometryTypeClass)
+	public List<MWaypoint> visitCoordinates(List<MCoordinate> geojsonCoordinateList, Class<? extends MType> geometryTypeClass)
 	{
 		List<MWaypoint> gpxWaypointList = new ArrayList<>();
 
@@ -139,7 +139,7 @@ public class GeojsonGpxTransformer
 		return gpxWaypointList;
 	}
 
-	private String visitPropertyName(List<MProperty> properties)
+	public String visitPropertyName(List<MProperty> properties)
 	{
 		for (MProperty geojsonProperty : properties)
 		{

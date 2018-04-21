@@ -20,7 +20,7 @@ import at.mlakar.geoconverter.kml.model.MKml;
 import at.mlakar.geoconverter.kml.model.MLinearRing;
 import at.mlakar.geoconverter.kml.model.MPlacemark;
 
-public class GeojsonKmlTransformer
+public class GeojsonKmlTransformer implements GeojsonKmlTransformerInterface
 {
 	public MKml getKmlModel(MGeojson mGeojson)
 	{
@@ -35,7 +35,8 @@ public class GeojsonKmlTransformer
 		return mKml;
 	}
 
-	private List<MPlacemark> visitFeatureList(List<MFeature> geojsonFeaturesList)
+	@Override
+	public List<MPlacemark> visitFeatureList(List<MFeature> geojsonFeaturesList)
 	{
 		List<MPlacemark> kmlPlacemarkList = new ArrayList<>();
 
@@ -47,7 +48,8 @@ public class GeojsonKmlTransformer
 		return kmlPlacemarkList;
 	}
 
-	private MPlacemark visitFeature(MFeature geojsonFeature)
+	@Override
+	public MPlacemark visitFeature(MFeature geojsonFeature)
 	{
 		MPlacemark kmlPlacemark = new MPlacemark();
 		MGeometry kmlGeometry = new MGeometry();
@@ -67,7 +69,8 @@ public class GeojsonKmlTransformer
 		return kmlPlacemark;
 	}
 
-	private String visitPropertyName(List<MProperty> properties)
+	@Override
+	public String visitPropertyName(List<MProperty> properties)
 	{
 		for (MProperty geojsonProperty : properties)
 		{
@@ -80,7 +83,8 @@ public class GeojsonKmlTransformer
 		return null;
 	}
 
-	private MGeometry visitGeometry(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry)
+	@Override
+	public MGeometry visitGeometry(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry)
 	{
 		MGeometry kmlGeometry = new MGeometry();
 		MCoordinatesList kmlCoordinatesList = new MCoordinatesList();
@@ -96,7 +100,8 @@ public class GeojsonKmlTransformer
 		return kmlGeometry;
 	}
 	
-	private MCoordinatesList visitCoordinates(List<MCoordinate> geojsonCoordinateList, Class<? extends MGeometry> geometryTypeClass)
+	@Override
+	public MCoordinatesList visitCoordinates(List<MCoordinate> geojsonCoordinateList, Class<? extends MGeometry> geometryTypeClass)
 	{
 		MCoordinatesList kmlCoordinatesList = new MCoordinatesList();
 
@@ -140,7 +145,8 @@ public class GeojsonKmlTransformer
 		return kmlCoordinatesList;
 	}
 
-	private MGeometry visitType(MType geojsonType)
+	@Override
+	public MGeometry visitType(MType geojsonType)
 	{
 		if (geojsonType instanceof MPoint)
 		{
