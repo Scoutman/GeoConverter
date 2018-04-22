@@ -9,6 +9,9 @@ import at.mlakar.geoconverter.geojson.model.MCoordinatePosition;
 import at.mlakar.geoconverter.geojson.model.MFeature;
 import at.mlakar.geoconverter.geojson.model.MGeojson;
 import at.mlakar.geoconverter.geojson.model.MLineString;
+import at.mlakar.geoconverter.geojson.model.MMultiLineString;
+import at.mlakar.geoconverter.geojson.model.MMultiPoint;
+import at.mlakar.geoconverter.geojson.model.MMultiPolygon;
 import at.mlakar.geoconverter.geojson.model.MPoint;
 import at.mlakar.geoconverter.geojson.model.MPolygon;
 import at.mlakar.geoconverter.geojson.model.MProperty;
@@ -18,6 +21,7 @@ import at.mlakar.geoconverter.kml.model.MDocument;
 import at.mlakar.geoconverter.kml.model.MGeometry;
 import at.mlakar.geoconverter.kml.model.MKml;
 import at.mlakar.geoconverter.kml.model.MLinearRing;
+import at.mlakar.geoconverter.kml.model.MMultiGeometry;
 import at.mlakar.geoconverter.kml.model.MPlacemark;
 
 public class GeojsonKmlTransformer implements GeojsonKmlTransformerInterface
@@ -62,9 +66,19 @@ public class GeojsonKmlTransformer implements GeojsonKmlTransformerInterface
 			kmlPlacemark.setName(placemarkName);
 		}
 
-		// geometry
-		kmlGeometry = visitGeometry(geojsonFeature.getGeometry());
-		kmlPlacemark.setGeometry(kmlGeometry);
+		// geometry single object
+		if (visitSingleType(geojsonFeature.getGeometry().getType()) != null)
+		{
+			kmlGeometry = visitSingleGeometry(geojsonFeature.getGeometry());
+			kmlPlacemark.setGeometry(kmlGeometry);
+		}
+		
+		// geometry multi obect
+		if (visitMultiType(geojsonFeature.getGeometry().getType()) != null)
+		{
+			MMultiGeometry multiGeometry = visitMultiGeometry(geojsonFeature.getGeometry());
+			kmlPlacemark.setMultiGeometry(multiGeometry);
+		}
 
 		return kmlPlacemark;
 	}
@@ -83,20 +97,61 @@ public class GeojsonKmlTransformer implements GeojsonKmlTransformerInterface
 		return null;
 	}
 
+	private MMultiGeometry visitMultiGeometry(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry)
+	{
+		MMultiGeometry multiGeometry = new MMultiGeometry();
+		MType geojsonType = geojsonGeometry.getType();
+			
+		//for (MCoordinate geojsonCoordinate : geojsonGeometry.getCoordinates().getCoordinateList())
+		
+		List<MCoordinate> geojsonCoordinate1 = geojsonGeometry.getCoordinates().getCoordinateList().get(0).getCoordinateList();
+		
+		System.out.println(((MCoordinatePosition) geojsonCoordinate1.get(0).getCoordinateList().get(0)).getLat());
+		System.out.println(geojsonCoordinate1.get(0).getCoordinateList().get(0));
+		System.out.println(geojsonCoordinate1.get(0).getCoordinateList());
+		System.out.println(geojsonCoordinate1.get(1).getCoordinateList());
+		
+		int size = 2;
+		
+		for(int i = 0; i < size; i++)
+		{
+			List<MCoordinate> geojsonCoordinate = geojsonGeometry.getCoordinates().getCoordinateList().get(0).getCoordinateList();
+			
+			//System.out.println(geojsonCoordinate.getCoordinateList());
+			
+			if ((geojsonCoordinate instanceof MCoordinatePosition))
+			{
+				System.out.println("MCoordinatePosition");
+			}
+			
+			MGeometry kmlGeometry = visitMultiType(geojsonType);
+			System.out.println(kmlGeometry.getClass());
+			
+			
+			MCoordinatesList kmlCoordinateList = visitCoordinates(geojsonCoordinate, kmlGeometry.getClass());
+			kmlGeometry.setCoordinateObjectList(kmlCoordinateList);
+			
+			multiGeometry.addGeometry(kmlGeometry);
+			
+			System.out.println(1);
+		}
+		
+		return multiGeometry;
+	}
+	
 	@Override
-	public MGeometry visitGeometry(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry)
+	public MGeometry visitSingleGeometry(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry)
 	{
 		MGeometry kmlGeometry = new MGeometry();
 		MCoordinatesList kmlCoordinatesList = new MCoordinatesList();
 		
-		// type
-		kmlGeometry = visitType(geojsonGeometry.getType());
-
+		// single type
+		kmlGeometry = visitSingleType(geojsonGeometry.getType());
+		
 		// coordinates
-		kmlCoordinatesList = visitCoordinates(geojsonGeometry.getCoordinates().getCoordinateList(),
-				kmlGeometry.getClass());
-		kmlGeometry.setCoordinateObjectList(kmlCoordinatesList);
-
+		kmlCoordinatesList = visitCoordinates(geojsonGeometry.getCoordinates().getCoordinateList(), kmlGeometry.getClass());
+		kmlGeometry.setCoordinateObjectList(kmlCoordinatesList);	
+		
 		return kmlGeometry;
 	}
 	
@@ -130,8 +185,7 @@ public class GeojsonKmlTransformer implements GeojsonKmlTransformerInterface
 
 		if (geometryTypeClass.isInstance(new at.mlakar.geoconverter.kml.model.MLinearRing()))
 		{
-			for (MCoordinate geojsonCoordinate : geojsonCoordinateList.get(0).getCoordinateList().get(0)
-					.getCoordinateList())
+			for (MCoordinate geojsonCoordinate : geojsonCoordinateList.get(0).getCoordinateList().get(0).getCoordinateList())
 			{
 				at.mlakar.geoconverter.kml.model.MCoordinate kmlCoordinate = new at.mlakar.geoconverter.kml.model.MCoordinate();
 
@@ -146,7 +200,7 @@ public class GeojsonKmlTransformer implements GeojsonKmlTransformerInterface
 	}
 
 	@Override
-	public MGeometry visitType(MType geojsonType)
+	public MGeometry visitSingleType(MType geojsonType)
 	{
 		if (geojsonType instanceof MPoint)
 		{
@@ -160,9 +214,30 @@ public class GeojsonKmlTransformer implements GeojsonKmlTransformerInterface
 		{
 			return new MLinearRing();
 		}
-		else
+		else 
 		{
-			throw new IllegalArgumentException("Illegal GeoJSON type " + geojsonType.getClass());
+			return null;
 		}
 	}
+	
+	@Override
+	public MGeometry visitMultiType(MType geojsonType)
+	{
+		if (geojsonType instanceof MMultiPoint)
+		{
+			return new at.mlakar.geoconverter.kml.model.MPoint();
+		}
+		else if (geojsonType instanceof MMultiLineString)
+		{
+			return new at.mlakar.geoconverter.kml.model.MLineString();
+		}
+		else if (geojsonType instanceof MMultiPolygon)
+		{
+			return new MLinearRing();
+		}
+		else 
+		{
+			throw new IllegalArgumentException("Illegal MultiType: " + geojsonType.getClass()); 
+		}
+	}	
 }

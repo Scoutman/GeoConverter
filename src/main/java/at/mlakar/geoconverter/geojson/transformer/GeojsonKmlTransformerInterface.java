@@ -19,11 +19,12 @@ public interface GeojsonKmlTransformerInterface
 
 	String visitPropertyName(List<MProperty> properties);
 
-	MGeometry visitGeometry(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry);
+	MGeometry visitSingleGeometry(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry);
 
-	MCoordinatesList visitCoordinates(List<MCoordinate> geojsonCoordinateList,
-			Class<? extends MGeometry> geometryTypeClass);
+	MCoordinatesList visitCoordinates(List<MCoordinate> geojsonCoordinateList, Class<? extends MGeometry> geometryTypeClass);
 
-	MGeometry visitType(MType geojsonType);
+	MGeometry visitSingleType(MType geojsonType);
+
+	MGeometry visitMultiType(MType geojsonType);
 
 }

@@ -19,7 +19,7 @@ import at.mlakar.geoconverter.gpx.model.MTrack;
 import at.mlakar.geoconverter.gpx.model.MTrackSegment;
 import at.mlakar.geoconverter.gpx.model.MWaypoint;
 
-public class GpxGeojsonTransformer
+public class GpxGeojsonTransformer implements GpxGeojsonTransformerInterface
 {
 	public MGeojson getGeojsonModel(MGpx mGpx)
 	{
@@ -32,6 +32,7 @@ public class GpxGeojsonTransformer
 		return mGeojson;
 	}
 
+	@Override
 	public List<MFeature> visitWaypointElements(List<MWaypoint> gpxWaypointList)
 	{
 		List<MFeature> geojsonFeatureList = new ArrayList<>();
@@ -42,7 +43,7 @@ public class GpxGeojsonTransformer
 			MFeature geojsonFeature = new MFeature();
 			MGeometry geojsonGeometry = new MGeometry(new MPoint());
 			
-			// Properties	
+			// properties	
 			geojsonFeature.setProperties(visitPropertyName(gpxWaypoint));				
 			
 			// coordinates
@@ -58,6 +59,7 @@ public class GpxGeojsonTransformer
 		return geojsonFeatureList;
 	}
 
+	@Override
 	public List<MFeature> visitRouteElements(List<MRoute> gpxRouteList)
 	{
 		List<MFeature> geojsonFeatureList = new ArrayList<>();
@@ -71,6 +73,7 @@ public class GpxGeojsonTransformer
 		return geojsonFeatureList;
 	}
 
+	@Override
 	public List<MFeature> visitTrackElements(List<MTrack> gpxTrackList)
 	{
 		List<MFeature> geojsonFeatureList = new ArrayList<>();
@@ -83,6 +86,7 @@ public class GpxGeojsonTransformer
 		return geojsonFeatureList;
 	}
 	
+	@Override
 	public List<MFeature> visitTrack(MTrack gpxTrack)
 	{
 		List<MFeature> geojsonFeatureList = new ArrayList<>();
@@ -104,6 +108,7 @@ public class GpxGeojsonTransformer
 		return geojsonFeatureList;
 	}
 
+	@Override
 	public MFeature visitTrackSegment(MTrackSegment gpxSegment)
 	{
 		MFeature geojsonFeature = new MFeature();
@@ -118,6 +123,7 @@ public class GpxGeojsonTransformer
 		return geojsonFeature;
 	}
 
+	@Override
 	public MFeature visitRoute(MRoute gpxRoute)
 	{
 		MFeature geojsonFeature = new MFeature();
@@ -135,6 +141,7 @@ public class GpxGeojsonTransformer
 		return geojsonFeature;
 	}
 
+	@Override
 	public MCoordinate visitWaypointList(ArrayList<MWaypoint> gpxWaypointsList)
 	{
 		MCoordinateList geojsonCoordinateList = new MCoordinateList();
@@ -150,6 +157,7 @@ public class GpxGeojsonTransformer
 		return geojsonCoordinateList;
 	}
 
+	@Override
 	public MCoordinatePosition visitWaypoint(MWaypoint gpxWaypoint)
 	{
 		MCoordinatePosition geojsonCoordinatePosition = new MCoordinatePosition();
@@ -160,16 +168,19 @@ public class GpxGeojsonTransformer
 		return geojsonCoordinatePosition;
 	}
 	
+	@Override
 	public List<MProperty> visitPropertyName(MRoute gpxRoute)
 	{
 		return propertyName(gpxRoute.getName());
 	}	
 	
+	@Override
 	public List<MProperty> visitPropertyName(MWaypoint gpxWaypoint)
 	{
 		return propertyName(gpxWaypoint.getName());
 	}
 	
+	@Override
 	public List<MProperty> visitPropertyName(MTrack gpxTrack)
 	{
 		return propertyName(gpxTrack.getName());

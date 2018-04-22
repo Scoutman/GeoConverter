@@ -15,7 +15,7 @@ public class KmlGeneratorTest
 	
 	
 	@Before
-	public void beforeFromModel()
+	public void before()
 	{
 		String xmlString = FileHelper.readFile(KmlResources.TESTFILE_KML);
 		

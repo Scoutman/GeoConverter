@@ -20,6 +20,17 @@
                 <coordinates>15.42138288166528,47.34776178510898,0 15.42680263822824,47.33994511674428,0 15.44210783210553,47.3433327980027,0 15.43027664029841,47.35022485830221,0 15.42138288166528,47.34776178510898,0 </coordinates>
             </LinearRing>
         </Placemark>
+        <Placemark>
+            <name>Track</name>
+            <MultiGeometry>
+                <LineString>
+                    <coordinates>15.42138288166528,47.34776178510898,0 15.42680263822824,47.33994511674428,0 </coordinates>
+                </LineString>
+                <LineString>
+                    <coordinates>15.42680263822824,47.33994511674428,0 15.44210783210553,47.3433327980027,0 </coordinates>
+                </LineString>
+            </MultiGeometry>
+        </Placemark>
         <Folder>
             <name>Folder Test</name>
             <Placemark>

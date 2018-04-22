@@ -17,7 +17,7 @@ import at.mlakar.geoconverter.gpx.model.MGpx;
 import at.mlakar.geoconverter.gpx.model.MRoute;
 import at.mlakar.geoconverter.gpx.model.MWaypoint;
 
-public class GeojsonGpxTransformer
+public class GeojsonGpxTransformer implements GeojsonGpxTransformerInterface
 {
 
 	public MGpx getModel(MGeojson mGeojson)
@@ -36,6 +36,7 @@ public class GeojsonGpxTransformer
 		return mGpx;
 	}
 
+	@Override
 	public List<MWaypoint> generatePoints(List<MFeature> geojsonFeaturesList)
 	{
 		List<MWaypoint> gpxWaypointList = new ArrayList<>();
@@ -62,6 +63,7 @@ public class GeojsonGpxTransformer
 		return gpxWaypointList;
 	}
 	
+	@Override
 	public List<MRoute> generateRoutes(List<MFeature> geojsonFeaturesList)
 	{
 		List<MRoute> gpxRouteList = new ArrayList<>();
@@ -96,6 +98,7 @@ public class GeojsonGpxTransformer
 		return gpxRouteList;
 	}	
 
+	@Override
 	public List<MWaypoint> visitCoordinates(List<MCoordinate> geojsonCoordinateList, Class<? extends MType> geometryTypeClass)
 	{
 		List<MWaypoint> gpxWaypointList = new ArrayList<>();
@@ -139,6 +142,7 @@ public class GeojsonGpxTransformer
 		return gpxWaypointList;
 	}
 
+	@Override
 	public String visitPropertyName(List<MProperty> properties)
 	{
 		for (MProperty geojsonProperty : properties)
