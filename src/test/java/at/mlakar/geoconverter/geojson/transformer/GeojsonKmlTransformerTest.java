@@ -15,7 +15,7 @@ public class GeojsonKmlTransformerTest
 	@Test
 	public void test()
 	{
-		String jsonString = FileHelper.readFile(JsonResources.MULTI_LINE_STRING_JSON);
+		String jsonString = FileHelper.readFile(JsonResources.MIXED_MULTI_JSON);
 		
 		GeojsonModelGenerator geojsonModelGeneratorGenerator = new GeojsonModelGenerator();
 		MGeojson mGeojson = geojsonModelGeneratorGenerator.getModel(jsonString);

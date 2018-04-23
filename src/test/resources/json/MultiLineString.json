@@ -1,10 +1,10 @@
 {
   "type": "FeatureCollection",
   "features": [
-    {
+        {
       "type": "Feature",
       "properties": {
-        "name": "rote wand"
+        "name": "rote wand multilinestring"
       },
       "geometry": {
         "type": "MultiLineString",
