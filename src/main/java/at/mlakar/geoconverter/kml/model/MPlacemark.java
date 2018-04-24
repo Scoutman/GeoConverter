@@ -19,6 +19,11 @@ public class MPlacemark extends MFeature
 
 	public void setGeometry(MGeometry mGeometry)
 	{
+		if (this.isSetMultiGeometry == true)
+		{
+			throw new IllegalArgumentException("MultiGeometry object is already set.");
+		}
+		
 		this.mGeometry = mGeometry;
 		this.isSetGeometry = true;
 	}
@@ -31,6 +36,11 @@ public class MPlacemark extends MFeature
 
 	public void setMultiGeometry(MMultiGeometry mMultiGeometry)
 	{
+		if (this.isSetGeometry == true)
+		{
+			throw new IllegalArgumentException("Geometry object is already set.");
+		}		
+		
 		this.mMultiGeometry = mMultiGeometry;
 		this.isSetMultiGeometry = true;
 	}

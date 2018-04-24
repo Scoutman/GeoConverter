@@ -130,25 +130,39 @@ public class KmlModelGeneratorTest
 	@Test
 	public void coordinateTest()
 	{
-		Assert.assertEquals("15.423645,47.362176,1720 ",
-				mKml.getDocument().getPlacemarkList().get(0).getGeometry().getCoordinateList());
-		Assert.assertEquals(new Double(47.362176), mKml.getDocument().getPlacemarkList().get(0).getGeometry()
-				.getCoordinates().getCoordinateList().get(0).getLat());
-		Assert.assertEquals(new Double(15.423645), mKml.getDocument().getPlacemarkList().get(0).getGeometry()
-				.getCoordinates().getCoordinateList().get(0).getLon());
-		Assert.assertEquals(1720, mKml.getDocument().getPlacemarkList().get(0).getGeometry().getCoordinates()
-				.getCoordinateList().get(0).getAltitude());
+		Assert.assertEquals("15.423645,47.362176,1720 ", mKml.getDocument().getPlacemarkList().get(0).getGeometry().getCoordinateList());
+		Assert.assertEquals(new Double(47.362176),
+				mKml.getDocument().getPlacemarkList().get(0).getGeometry().getCoordinates().getCoordinateList().get(0).getLat());
+		Assert.assertEquals(new Double(15.423645),
+				mKml.getDocument().getPlacemarkList().get(0).getGeometry().getCoordinates().getCoordinateList().get(0).getLon());
+		Assert.assertEquals(1720,
+				mKml.getDocument().getPlacemarkList().get(0).getGeometry().getCoordinates().getCoordinateList().get(0).getAltitude());
 	}
 
 	@Test
 	public void multiGeometryTest()
 	{
 		Assert.assertEquals(2, mKml.getDocument().getPlacemarkList().get(3).getMultiGeometry().getGeometry().size());
-		Assert.assertEquals(MLineString.class,
-				mKml.getDocument().getPlacemarkList().get(3).getMultiGeometry().getGeometry().get(0).getClass());
-		Assert.assertEquals(new Double(47.34776178510898), mKml.getDocument().getPlacemarkList().get(3)
-				.getMultiGeometry().getGeometry().get(0).getCoordinates().getCoordinateList().get(0).getLat());
-		Assert.assertEquals(new Double(15.42138288166528), mKml.getDocument().getPlacemarkList().get(3)
-				.getMultiGeometry().getGeometry().get(0).getCoordinates().getCoordinateList().get(0).getLon());
+		Assert.assertEquals(MLineString.class, mKml.getDocument().getPlacemarkList().get(3).getMultiGeometry().getGeometry().get(0).getClass());
+		Assert.assertEquals(new Double(47.34776178510898), mKml.getDocument().getPlacemarkList().get(3).getMultiGeometry().getGeometry().get(0)
+				.getCoordinates().getCoordinateList().get(0).getLat());
+		Assert.assertEquals(new Double(15.42138288166528), mKml.getDocument().getPlacemarkList().get(3).getMultiGeometry().getGeometry().get(0)
+				.getCoordinates().getCoordinateList().get(0).getLon());
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void placemarkGeometryExceptionTest()
+	{
+		MPlacemark placemark = new MPlacemark();
+		placemark.setGeometry(new MPoint());
+		placemark.setMultiGeometry(new MMultiGeometry());
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void placemarkMultiGeometryExceptionTest()
+	{
+		MPlacemark placemark = new MPlacemark();
+		placemark.setMultiGeometry(new MMultiGeometry());
+		placemark.setGeometry(new MPoint());
 	}
 }
