@@ -26,10 +26,10 @@ public class GeojsonModelGeneratorTest
 	@Before
 	public void before()
 	{
-		String jsonPoint = FileHelper.readFile(JsonResources.POINT_JSON);
-		String jsonNoPropertiesPoint = FileHelper.readFile(JsonResources.POINT_NO_PROPERTIES_JSON);
-		String jsonLineString = FileHelper.readFile(JsonResources.LINE_STRING_JSON);
-		String jsonMultiLineString = FileHelper.readFile(JsonResources.MULTI_LINE_STRING_JSON);
+		String jsonPoint = FileHelper.readFile(JsonResources.POINT);
+		String jsonNoPropertiesPoint = FileHelper.readFile(JsonResources.POINT_NO_PROPERTIES);
+		String jsonLineString = FileHelper.readFile(JsonResources.LINE_STRING);
+		String jsonMultiLineString = FileHelper.readFile(JsonResources.MULTI_LINE_STRING);
 		
 		GeojsonModelGenerator modelGenerator = new GeojsonModelGenerator();
 		geojsonModelPoint = modelGenerator.getModel(jsonPoint);

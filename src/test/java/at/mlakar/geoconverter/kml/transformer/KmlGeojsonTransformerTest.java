@@ -16,7 +16,7 @@ public class KmlGeojsonTransformerTest
 	@Test
 	public void test()
 	{
-		String xmlString = FileHelper.readFile(KmlResources.MULTI_GEOMETRY);
+		String xmlString = FileHelper.readFile(KmlResources.MIXED_MULTI_ELEMENTS);
 		
 		ModelGenerator<MKml> kmlModelGenerator = new KmlModelGenerator<>(MKml.class);
 		MKml mKml = kmlModelGenerator.getModel(xmlString);

@@ -18,7 +18,7 @@ public class GeojsonGeneratorTest
 		fileTestHelper(JsonResources.POLYGON_JSON);
 		fileTestHelper(JsonResources.MIXED_JSON);
 		*/
-		fileTestHelper(JsonResources.MULTI_LINE_STRING_JSON);
+		fileTestHelper(JsonResources.MULTI_LINE_STRING);
 	}
 	
 	private void fileTestHelper(String JsonResources)

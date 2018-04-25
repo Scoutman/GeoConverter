@@ -16,7 +16,7 @@ public class GpxGeojsonTransformerTest
 	@Test
 	public void test()
 	{
-		String gpxString = FileHelper.readFile(GpxResources.TESTFILE_GPX);
+		String gpxString = FileHelper.readFile(GpxResources.MIXED_ELEMENTS);
 		
 		ModelGenerator<MGpx> gpxModelGenerator = new GpxModelGenerator<>(MGpx.class);
 		MGpx mGpx = gpxModelGenerator.getModel(gpxString);

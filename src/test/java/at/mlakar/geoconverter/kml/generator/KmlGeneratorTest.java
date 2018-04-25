@@ -17,7 +17,7 @@ public class KmlGeneratorTest
 	@Before
 	public void before()
 	{
-		String xmlString = FileHelper.readFile(KmlResources.TESTFILE_KML);
+		String xmlString = FileHelper.readFile(KmlResources.MIXED_ELEMENTS);
 		
 		ModelGenerator<MKml> kmlModelGenerator = new KmlModelGenerator<>(MKml.class);
 		mKmlFromModel = kmlModelGenerator.getModel(xmlString);
@@ -29,7 +29,7 @@ public class KmlGeneratorTest
 		KmlGenerator kmlGenerator = new KmlGenerator();
 		
 		String kmlFromModel = kmlGenerator.getKml(this.mKmlFromModel);
-		String kmlFromFile = FileHelper.readFile(KmlResources.TESTFILE_KML);
+		String kmlFromFile = FileHelper.readFile(KmlResources.MIXED_ELEMENTS);
 
 		Assert.assertEquals(FileHelper.cleanString(kmlFromFile), FileHelper.cleanString(kmlFromModel));
 	}	
