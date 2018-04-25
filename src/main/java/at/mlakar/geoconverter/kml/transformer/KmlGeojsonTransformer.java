@@ -143,7 +143,6 @@ public class KmlGeojsonTransformer implements KmlGeojsonTransformerInterface
 		{
 			geojsonGeometry = new MGeometry(new MMultiPolygon());
 			geojsonCoordinates = visitCoordinatesMultiLinearRing(kmlMultiGeometry);
-
 		}
 		else
 		{

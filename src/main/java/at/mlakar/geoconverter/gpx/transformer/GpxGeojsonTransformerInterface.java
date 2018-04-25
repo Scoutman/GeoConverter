@@ -9,7 +9,6 @@ import at.mlakar.geoconverter.geojson.model.MFeature;
 import at.mlakar.geoconverter.geojson.model.MProperty;
 import at.mlakar.geoconverter.gpx.model.MRoute;
 import at.mlakar.geoconverter.gpx.model.MTrack;
-import at.mlakar.geoconverter.gpx.model.MTrackSegment;
 import at.mlakar.geoconverter.gpx.model.MWaypoint;
 
 public interface GpxGeojsonTransformerInterface
@@ -21,9 +20,7 @@ public interface GpxGeojsonTransformerInterface
 
 	List<MFeature> visitTrackElements(List<MTrack> gpxTrackList);
 
-	List<MFeature> visitTrack(MTrack gpxTrack);
-
-	MFeature visitTrackSegment(MTrackSegment gpxSegment);
+	MFeature visitTrack(MTrack gpxTrack);
 
 	MFeature visitRoute(MRoute gpxRoute);
 
