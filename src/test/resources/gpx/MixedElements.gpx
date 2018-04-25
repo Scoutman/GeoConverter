@@ -18,18 +18,18 @@
     <trk>
         <name>Ein aufgezeichneter Track</name>
         <trkseg>
-            <trkpt lat="47.32923199357016" lon="15.362652534697418">
+            <trkpt lat="47.32923199357016" lon="15.36265253469742">
                 <name>Mixnitz</name>
             </trkpt>
-            <trkpt lat="47.36261372836141" lon="15.425823921416168">
+            <trkpt lat="47.36261372836141" lon="15.42582392141617">
                 <name>Hochlantsch</name>
             </trkpt>
         </trkseg>
         <trkseg>
-            <trkpt lat="47.32923199357016" lon="15.362652534697418">
+            <trkpt lat="47.32923199357017" lon="15.36265253469741">
                 <name>Mixnitz</name>
             </trkpt>
-            <trkpt lat="47.36261372836141" lon="15.425823921416168">
+            <trkpt lat="47.36261372836142" lon="15.42582392141616">
                 <name>Hochlantsch</name>
             </trkpt>
         </trkseg>

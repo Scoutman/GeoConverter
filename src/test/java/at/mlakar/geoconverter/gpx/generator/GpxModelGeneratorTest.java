@@ -83,8 +83,8 @@ public class GpxModelGeneratorTest
 	@Test
 	public void trackSegmentTest()
 	{
-		Assert.assertEquals(new Double(47.36261372836141), mGpx.getTracksList().get(0).getSegmentsList().get(1).getWaypointsList().get(1).getLat());
-		Assert.assertEquals(new Double(15.425823921416168), mGpx.getTracksList().get(0).getSegmentsList().get(1).getWaypointsList().get(1).getLon());
+		Assert.assertEquals(new Double(47.36261372836142), mGpx.getTracksList().get(0).getSegmentsList().get(1).getWaypointsList().get(1).getLat());
+		Assert.assertEquals(new Double(15.42582392141616), mGpx.getTracksList().get(0).getSegmentsList().get(1).getWaypointsList().get(1).getLon());
 		Assert.assertEquals("Hochlantsch", mGpx.getTracksList().get(0).getSegmentsList().get(1).getWaypointsList().get(1).getName());
 	}	
 }
