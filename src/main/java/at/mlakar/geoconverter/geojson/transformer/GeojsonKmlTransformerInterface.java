@@ -18,15 +18,11 @@ public interface GeojsonKmlTransformerInterface
 
 	MPlacemark visitFeature(MFeature geojsonFeature);
 
-	String visitPropertyName(List<MProperty> properties);
-
 	MGeometry visitSingleGeometry(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry);
 
+	MMultiGeometry visitMultiGeometry(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry);
+
 	MCoordinatesList visitSingleCoordinates(List<MCoordinate> geojsonCoordinateList, Class<? extends MGeometry> geometryTypeClass);
-
-	MGeometry visitSingleType(MType geojsonType);
-
-	MGeometry visitMultiType(MType geojsonType);
 
 	MMultiGeometry visitMultiPolygon(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry);
 
@@ -34,6 +30,9 @@ public interface GeojsonKmlTransformerInterface
 
 	MMultiGeometry visitMultiPoint(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry);
 
-	MMultiGeometry visitMultiGeometry(at.mlakar.geoconverter.geojson.model.MGeometry geojsonGeometry);
+	MGeometry visitSingleType(MType geojsonType);
 
+	MGeometry visitMultiType(MType geojsonType);
+
+	String visitPropertyName(List<MProperty> properties);
 }
