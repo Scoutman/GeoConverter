@@ -16,7 +16,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+      	"name": "line string"
+      },
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -37,7 +39,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "name": "polygon"      	
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

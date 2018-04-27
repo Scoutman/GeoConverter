@@ -40,7 +40,7 @@ public class GeojsonGpxTransformer implements GeojsonGpxTransformerInterface
 		// tracks
 		List<MTrack> gpxTrackList = generateTracks(mGeojson.getFeaturesList());
 		mGpx.getTracksList().addAll(gpxTrackList);
-		
+
 		return mGpx;
 	}
 
@@ -52,29 +52,24 @@ public class GeojsonGpxTransformer implements GeojsonGpxTransformerInterface
 		for (MFeature geojsonFeature : geojsonFeaturesList)
 		{
 			MType geojsonType = geojsonFeature.getGeometry().getType();
+			List<MWaypoint> coordinatesList = null;
 
-			if (geojsonType instanceof MPoint || geojsonType instanceof MMultiPoint)
+			if (geojsonType instanceof MPoint)
 			{
-				MWaypoint gpxWaypoint = null;
-				List<MWaypoint> coordinatesList = null;
+				// coordinates
+				coordinatesList = visitSinglePoint(geojsonFeature);
 
-				if (geojsonType instanceof MPoint)
-				{
-					// coordinates
-					coordinatesList = visitSingleCoordinates(geojsonFeature.getGeometry().getCoordinates().getCoordinateList(), MPoint.class);
-					gpxWaypoint = coordinatesList.get(0);
+				// waypoint name
+				String pointName = visitPropertyName(geojsonFeature.getProperties());
+				coordinatesList.get(0).setName(pointName);
+			}
+			else if (geojsonType instanceof MMultiPoint)
+			{
+				coordinatesList = visitMultiPoint(geojsonFeature);
+			}
 
-					// waypoint name
-					String pointName = visitPropertyName(geojsonFeature.getProperties());
-					gpxWaypoint.setName(pointName);
-				}
-				else if (geojsonType instanceof MMultiPoint)
-				{
-					// coordinates
-					coordinatesList = visitMultiPoint(geojsonFeature);
-					gpxWaypoint = coordinatesList.get(0);
-				}
-
+			if (coordinatesList != null)
+			{
 				gpxWaypointList.addAll(coordinatesList);
 			}
 		}
@@ -89,21 +84,21 @@ public class GeojsonGpxTransformer implements GeojsonGpxTransformerInterface
 
 		for (MFeature geojsonFeature : geojsonFeaturesList)
 		{
-			if (geojsonFeature.getGeometry().getType() instanceof MLineString || geojsonFeature.getGeometry().getType() instanceof MPolygon)
+			MType geojsonType = geojsonFeature.getGeometry().getType();
+			List<MWaypoint> coordinatesList = null;
+
+			if (geojsonType instanceof MLineString)
 			{
-				// coordinates
+				coordinatesList = visitSingleLineString(geojsonFeature);
+			}
+			else if (geojsonType instanceof MPolygon)
+			{
+				coordinatesList = visitSinglePolygon(geojsonFeature);
+			}
+
+			if (coordinatesList != null)
+			{
 				MRoute gpxRoute = new MRoute();
-				List<MWaypoint> coordinatesList = null;
-
-				if (geojsonFeature.getGeometry().getType() instanceof MLineString)
-				{
-					coordinatesList = visitSingleCoordinates(geojsonFeature.getGeometry().getCoordinates().getCoordinateList(), MLineString.class);
-				}
-				else if (geojsonFeature.getGeometry().getType() instanceof MPolygon)
-				{
-					coordinatesList = visitSingleCoordinates(geojsonFeature.getGeometry().getCoordinates().getCoordinateList(), MPolygon.class);
-				}
-
 				gpxRoute.getWaypointsList().addAll(coordinatesList);
 
 				// route name
@@ -124,20 +119,20 @@ public class GeojsonGpxTransformer implements GeojsonGpxTransformerInterface
 
 		for (MFeature geojsonFeature : geojsonFeaturesList)
 		{
-			if (geojsonFeature.getGeometry().getType() instanceof MMultiLineString || geojsonFeature.getGeometry().getType() instanceof MMultiPolygon)
+			MType geojsonType = geojsonFeature.getGeometry().getType();
+			List<MTrack> trackList = null;
+
+			if (geojsonType instanceof MMultiLineString)
 			{
-				List<MTrack> trackList = null;
+				trackList = visitMultiLineString(geojsonFeature);
+			}
+			else if (geojsonType instanceof MMultiPolygon)
+			{
+				trackList = visitMultiPolygonString(geojsonFeature);
+			}
 
-				if (geojsonFeature.getGeometry().getType() instanceof MMultiLineString)
-				{
-					trackList = visitMultiLineString(geojsonFeature);
-				}
-				else if (geojsonFeature.getGeometry().getType() instanceof MMultiPolygon)
-				{
-					trackList = visitMultiPolygonString(geojsonFeature);
-				}
-
-
+			if (trackList != null)
+			{
 				gpxTrackList.addAll(trackList);
 			}
 		}
@@ -146,110 +141,51 @@ public class GeojsonGpxTransformer implements GeojsonGpxTransformerInterface
 	}
 
 	@Override
-	public List<MTrack> visitMultiLineString(MFeature geojsonFeature)
+	public List<MWaypoint> visitSinglePoint(MFeature geojsonFeature)
 	{
-		List<MTrack> gpxTrackList = new ArrayList<>();
+		List<MWaypoint> gpxWaypointList = new ArrayList<>();
+		MWaypoint gpxWaypoint = new MWaypoint();
 
-		// name
-		String trackName = visitPropertyName(geojsonFeature.getProperties());
+		gpxWaypoint.setLat(((MCoordinatePosition) geojsonFeature.getGeometry().getCoordinates().getCoordinateList().get(0)).getLat());
+		gpxWaypoint.setLon(((MCoordinatePosition) geojsonFeature.getGeometry().getCoordinates().getCoordinateList().get(0)).getLon());
 
-		for (MCoordinate multiCoordinate : geojsonFeature.getGeometry().getCoordinates().getCoordinateList().get(0).getCoordinateList())
-		{
-			MTrack gpxTrack = new MTrack();
-			MTrackSegment gpxSegment = new MTrackSegment();
+		gpxWaypointList.add(gpxWaypoint);
 
-			// set name
-			gpxTrack.setName(trackName);
-
-			for (MCoordinate coordinate : multiCoordinate.getCoordinateList())
-			{
-				MWaypoint gpxWaypoint = new MWaypoint();
-
-				gpxWaypoint.setLat(((MCoordinatePosition) coordinate).getLat());
-				gpxWaypoint.setLon(((MCoordinatePosition) coordinate).getLon());
-
-				gpxSegment.addWaypoint(gpxWaypoint);
-			}
-
-			gpxTrack.addSegment(gpxSegment);
-			gpxTrackList.add(gpxTrack);
-		}
-
-		return gpxTrackList;
+		return gpxWaypointList;
 	}
 
 	@Override
-	public List<MTrack> visitMultiPolygonString(MFeature geojsonFeature)
-	{
-		List<MTrack> gpxTrackList = new ArrayList<>();
-
-		// name
-		String trackName = visitPropertyName(geojsonFeature.getProperties());
-
-		for (MCoordinate multiCoordinate : geojsonFeature.getGeometry().getCoordinates().getCoordinateList().get(0).getCoordinateList())
-		{
-			MTrack gpxTrack = new MTrack();
-			MTrackSegment gpxSegment = new MTrackSegment();
-
-			// set name
-			gpxTrack.setName(trackName);
-
-			for (MCoordinate coordinate : multiCoordinate.getCoordinateList().get(0).getCoordinateList())
-			{
-				MWaypoint gpxWaypoint = new MWaypoint();
-
-				gpxWaypoint.setLat(((MCoordinatePosition) coordinate).getLat());
-				gpxWaypoint.setLon(((MCoordinatePosition) coordinate).getLon());
-
-				gpxSegment.addWaypoint(gpxWaypoint);
-			}
-
-			gpxTrack.addSegment(gpxSegment);
-			gpxTrackList.add(gpxTrack);
-		}
-
-		return gpxTrackList;
-	}	
-	
-	@Override
-	public List<MWaypoint> visitSingleCoordinates(List<MCoordinate> geojsonCoordinateList, Class<? extends MType> geometryTypeClass)
+	public List<MWaypoint> visitSingleLineString(MFeature geojsonFeature)
 	{
 		List<MWaypoint> gpxWaypointList = new ArrayList<>();
 
-		if (geometryTypeClass.isInstance(new MPoint()))
+		for (MCoordinate geojsonCoordinate : geojsonFeature.getGeometry().getCoordinates().getCoordinateList().get(0).getCoordinateList())
 		{
 			MWaypoint gpxWaypoint = new MWaypoint();
 
-			gpxWaypoint.setLat(((MCoordinatePosition) geojsonCoordinateList.get(0)).getLat());
-			gpxWaypoint.setLon(((MCoordinatePosition) geojsonCoordinateList.get(0)).getLon());
+			gpxWaypoint.setLat(((MCoordinatePosition) geojsonCoordinate).getLat());
+			gpxWaypoint.setLon(((MCoordinatePosition) geojsonCoordinate).getLon());
 
 			gpxWaypointList.add(gpxWaypoint);
 		}
 
-		if (geometryTypeClass.isInstance(new MLineString()))
+		return gpxWaypointList;
+	}
+
+	@Override
+	public List<MWaypoint> visitSinglePolygon(MFeature geojsonFeature)
+	{
+		List<MWaypoint> gpxWaypointList = new ArrayList<>();
+
+		for (MCoordinate geojsonCoordinate : geojsonFeature.getGeometry().getCoordinates().getCoordinateList().get(0).getCoordinateList().get(0)
+				.getCoordinateList())
 		{
-			for (MCoordinate geojsonCoordinate : geojsonCoordinateList.get(0).getCoordinateList())
-			{
-				MWaypoint gpxWaypoint = new MWaypoint();
+			MWaypoint gpxWaypoint = new MWaypoint();
 
-				gpxWaypoint.setLat(((MCoordinatePosition) geojsonCoordinate).getLat());
-				gpxWaypoint.setLon(((MCoordinatePosition) geojsonCoordinate).getLon());
+			gpxWaypoint.setLat(((MCoordinatePosition) geojsonCoordinate).getLat());
+			gpxWaypoint.setLon(((MCoordinatePosition) geojsonCoordinate).getLon());
 
-				gpxWaypointList.add(gpxWaypoint);
-			}
-		}
-
-		if (geometryTypeClass.isInstance(new MPolygon()))
-		{
-			for (MCoordinate geojsonCoordinate : geojsonCoordinateList.get(0).getCoordinateList().get(0).getCoordinateList())
-			{
-				MWaypoint gpxWaypoint = new MWaypoint();
-
-				gpxWaypoint.setLat(((MCoordinatePosition) geojsonCoordinate).getLat());
-				gpxWaypoint.setLon(((MCoordinatePosition) geojsonCoordinate).getLon());
-
-				gpxWaypointList.add(gpxWaypoint);
-			}
+			gpxWaypointList.add(gpxWaypoint);
 		}
 
 		return gpxWaypointList;
@@ -281,6 +217,74 @@ public class GeojsonGpxTransformer implements GeojsonGpxTransformerInterface
 	}
 
 	@Override
+	public List<MTrack> visitMultiLineString(MFeature geojsonFeature)
+	{
+		List<MTrack> gpxTrackList = new ArrayList<>();
+		MTrack gpxTrack = new MTrack();
+		
+		// name
+		String trackName = visitPropertyName(geojsonFeature.getProperties());
+
+		for (MCoordinate multiCoordinate : geojsonFeature.getGeometry().getCoordinates().getCoordinateList().get(0).getCoordinateList())
+		{
+			MTrackSegment gpxSegment = new MTrackSegment();
+
+			// set name
+			gpxTrack.setName(trackName);
+
+			for (MCoordinate coordinate : multiCoordinate.getCoordinateList())
+			{
+				MWaypoint gpxWaypoint = new MWaypoint();
+
+				gpxWaypoint.setLat(((MCoordinatePosition) coordinate).getLat());
+				gpxWaypoint.setLon(((MCoordinatePosition) coordinate).getLon());
+
+				gpxSegment.addWaypoint(gpxWaypoint);
+			}
+
+			gpxTrack.addSegment(gpxSegment);
+		}
+		
+		gpxTrackList.add(gpxTrack);
+		
+		return gpxTrackList;
+	}
+
+	@Override
+	public List<MTrack> visitMultiPolygonString(MFeature geojsonFeature)
+	{
+		List<MTrack> gpxTrackList = new ArrayList<>();
+		MTrack gpxTrack = new MTrack();
+		
+		// name
+		String trackName = visitPropertyName(geojsonFeature.getProperties());
+
+		for (MCoordinate multiCoordinate : geojsonFeature.getGeometry().getCoordinates().getCoordinateList().get(0).getCoordinateList())
+		{
+			MTrackSegment gpxSegment = new MTrackSegment();
+
+			// set name
+			gpxTrack.setName(trackName);
+
+			for (MCoordinate coordinate : multiCoordinate.getCoordinateList().get(0).getCoordinateList())
+			{
+				MWaypoint gpxWaypoint = new MWaypoint();
+
+				gpxWaypoint.setLat(((MCoordinatePosition) coordinate).getLat());
+				gpxWaypoint.setLon(((MCoordinatePosition) coordinate).getLon());
+
+				gpxSegment.addWaypoint(gpxWaypoint);
+			}
+
+			gpxTrack.addSegment(gpxSegment);
+		}
+		
+		gpxTrackList.add(gpxTrack);
+
+		return gpxTrackList;
+	}
+
+	@Override
 	public String visitPropertyName(List<MProperty> properties)
 	{
 		for (MProperty geojsonProperty : properties)
@@ -293,5 +297,4 @@ public class GeojsonGpxTransformer implements GeojsonGpxTransformerInterface
 
 		return null;
 	}
-
 }
