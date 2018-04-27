@@ -56,7 +56,6 @@ public class GeojsonKmlTransformer implements GeojsonKmlTransformerInterface
 	public MPlacemark visitFeature(MFeature geojsonFeature)
 	{
 		MPlacemark kmlPlacemark = new MPlacemark();
-		MGeometry kmlGeometry = new MGeometry();
 
 		// get feature name
 		String placemarkName = visitPropertyName(geojsonFeature.getProperties());
@@ -67,13 +66,13 @@ public class GeojsonKmlTransformer implements GeojsonKmlTransformerInterface
 		}
 
 		// geometry single object
-		if (visitSingleType(geojsonFeature.getGeometry().getType()) != null)
+		if (geojsonFeature.getGeometry().getType().isSingleGeometry())
 		{
-			kmlGeometry = visitSingleGeometry(geojsonFeature.getGeometry());
+			MGeometry kmlGeometry = visitSingleGeometry(geojsonFeature.getGeometry());
 			kmlPlacemark.setGeometry(kmlGeometry);
 		}
 		// geometry multi obect
-		else if (visitMultiType(geojsonFeature.getGeometry().getType()) != null)
+		else if (geojsonFeature.getGeometry().getType().isMultiGeometry())
 		{
 			MMultiGeometry multiGeometry = visitMultiGeometry(geojsonFeature.getGeometry());
 			kmlPlacemark.setMultiGeometry(multiGeometry);
@@ -102,7 +101,7 @@ public class GeojsonKmlTransformer implements GeojsonKmlTransformerInterface
 		MGeometry kmlGeometry = new MGeometry();
 		MCoordinatesList kmlCoordinatesList = new MCoordinatesList();
 		
-		// single type
+		// type
 		kmlGeometry = visitSingleType(geojsonGeometry.getType());
 		
 		// coordinates
