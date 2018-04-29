@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import at.mlakar.geoconverter.generator.ModelGenerator;
+import at.mlakar.geoconverter.generator.XmlModelGenerator;
 import at.mlakar.geoconverter.gpx.model.MGpx;
 import at.mlakar.geoconverter.testhelper.FileHelper;
 import at.mlakar.geoconverter.testhelper.GpxResources;
@@ -18,7 +18,7 @@ public class GpxGeneratorTest
 	{
 		String xmlString = FileHelper.readFile(GpxResources.MIXED_ELEMENTS);
 		
-		ModelGenerator<MGpx> gpxModelGenerator = new GpxModelGenerator<>(MGpx.class);
+		XmlModelGenerator<MGpx> gpxModelGenerator = new GpxModelGenerator<>(MGpx.class);
 		mGpx = gpxModelGenerator.getModel(xmlString);
 	}
 

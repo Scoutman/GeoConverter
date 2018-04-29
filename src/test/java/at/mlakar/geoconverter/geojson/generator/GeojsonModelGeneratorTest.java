@@ -110,21 +110,12 @@ public class GeojsonModelGeneratorTest
 
 		Double lat1 = ((MCoordinatePosition)coordinateList.get(0).getCoordinateList().get(0).getCoordinateList().get(0)).getLat();
 		Double lon1 = ((MCoordinatePosition)coordinateList.get(0).getCoordinateList().get(0).getCoordinateList().get(0)).getLon(); 
-		
-		System.out.println("lat1: " + lat1);
-		System.out.println("lon1: " + lon1);
 
 		Double lat2 = ((MCoordinatePosition)coordinateList.get(0).getCoordinateList().get(0).getCoordinateList().get(1)).getLat();
 		Double lon2 = ((MCoordinatePosition)coordinateList.get(0).getCoordinateList().get(0).getCoordinateList().get(1)).getLon(); 
-		
-		System.out.println("lat2: " + lat2);
-		System.out.println("lon2: " + lon2);
 
 		Double lat3 = ((MCoordinatePosition)coordinateList.get(0).getCoordinateList().get(0).getCoordinateList().get(2)).getLat();
-		Double lon3 = ((MCoordinatePosition)coordinateList.get(0).getCoordinateList().get(0).getCoordinateList().get(2)).getLon(); 
-		
-		System.out.println("lat3: " + lat3);
-		System.out.println("lon3: " + lon3);		
+		Double lon3 = ((MCoordinatePosition)coordinateList.get(0).getCoordinateList().get(0).getCoordinateList().get(2)).getLon(); 	
 		
 		Assert.assertEquals((Double) 47.31706481870458, lat1);
 		Assert.assertEquals((Double) 15.37450790405273, lon1);

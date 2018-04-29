@@ -12,11 +12,11 @@ import javax.xml.stream.XMLInputFactory;
  *
  * @param <T>
  */
-public abstract class ModelGenerator<T extends XmlModel>
+public abstract class XmlModelGenerator<T extends XmlModel>
 {
 	private Class<T> type;
 
-	public ModelGenerator(Class<T> type)
+	public XmlModelGenerator(Class<T> type)
 	{
 		this.type = type;
 	}

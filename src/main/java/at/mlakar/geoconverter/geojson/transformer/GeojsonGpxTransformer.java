@@ -25,7 +25,7 @@ import at.mlakar.geoconverter.gpx.model.MWaypoint;
 public class GeojsonGpxTransformer implements GeojsonGpxTransformerInterface
 {
 
-	public MGpx getModel(MGeojson mGeojson)
+	public MGpx getGpxModel(MGeojson mGeojson)
 	{
 		MGpx mGpx = new MGpx();
 

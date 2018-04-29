@@ -12,12 +12,11 @@ public class GeojsonGeneratorTest
 
 	@Test
 	public void generatorTest()
-	{/*
-		fileTestHelper(JsonResources.POINT_JSON);
-		fileTestHelper(JsonResources.LINE_STRING_JSON);
-		fileTestHelper(JsonResources.POLYGON_JSON);
-		fileTestHelper(JsonResources.MIXED_JSON);
-		*/
+	{
+		fileTestHelper(JsonResources.POINT);
+		fileTestHelper(JsonResources.LINE_STRING);
+		fileTestHelper(JsonResources.POLYGON);
+		fileTestHelper(JsonResources.MIXED_ELEMENTS);	
 		fileTestHelper(JsonResources.MULTI_LINE_STRING);
 	}
 	
@@ -29,15 +28,10 @@ public class GeojsonGeneratorTest
 		MGeojson geojsonModel = modelGenerator.getModel(jsonString);	
 		GeojsonGenerator geojsonGenerator = new GeojsonGenerator();
 		
-		String geojsonFromModel = geojsonGenerator.getJson(geojsonModel);
+		String geojsonFromModel = geojsonGenerator.getGeojson(geojsonModel);
 		String geojsonFromFile = FileHelper.readFile(JsonResources);
 		
-		//System.out.println(geojsonFromFile);
-		//System.out.println(geojsonFromModel);
-		
 		Assert.assertEquals(FileHelper.cleanString(geojsonFromFile), FileHelper.cleanString(geojsonFromModel));
-		
-
 	}
 	
 }

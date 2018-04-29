@@ -31,7 +31,7 @@ import at.mlakar.geoconverter.geojson.model.MType;
 public class GeojsonGenerator implements GeojsonGeneratorInterface
 {
 
-	public String getJson(MGeojson geojsonModel)
+	public String getGeojson(MGeojson geojsonModel)
 	{
 		JsonObject jsonObject = visitGeojson(geojsonModel);
 		

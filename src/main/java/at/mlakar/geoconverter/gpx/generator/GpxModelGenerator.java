@@ -1,13 +1,13 @@
 package at.mlakar.geoconverter.gpx.generator;
 
-import at.mlakar.geoconverter.generator.ModelGenerator;
+import at.mlakar.geoconverter.generator.XmlModelGenerator;
 import at.mlakar.geoconverter.generator.XmlModel;
 
 /**
  * Generiert aus XML String, im GPX Format, ein Java Datenmodell der Klasse <code>MGpx</code>.
  *
  */
-public class GpxModelGenerator<T extends XmlModel> extends ModelGenerator<T>
+public class GpxModelGenerator<T extends XmlModel> extends XmlModelGenerator<T>
 {
 	/**
 	 * Instanziiert GPX Modell Generator Klasse.
