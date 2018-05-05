@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController
 {
 	@Autowired
-	private UserRepository userRepository;
+	private GeodataRepository geodataRepository;
 
 	@PostMapping(path = "")
 	public @ResponseBody String addNewUser(@RequestParam String type, @RequestParam String geodata)
@@ -30,21 +30,21 @@ public class MainController
 		Geodata n = new Geodata();
 		n.setType(type);
 		n.setGeodata(geodata);
-		userRepository.save(n);
+		geodataRepository.save(n);
 		return "Saved";
 	}
 
 	@GetMapping(path = "/all")
 	public @ResponseBody Iterable<Geodata> getAllUsers()
 	{
-		return userRepository.findAll();
+		return geodataRepository.findAll();
 	}
 
 	@GetMapping("/{id}")
 	public @ResponseBody String getUser(@PathVariable Integer id)
 	{
 		Geodata n = new Geodata();
-		Optional<Geodata> optionalUser = userRepository.findById(id);
+		Optional<Geodata> optionalUser = geodataRepository.findById(id);
 		n = optionalUser.get();
 
 		return n.getId() + " - " + n.getType();
@@ -53,7 +53,7 @@ public class MainController
 	@DeleteMapping("/{id}")
 	public @ResponseBody String deleteUser(@PathVariable Integer id)
 	{
-		userRepository.deleteById(id);
+		geodataRepository.deleteById(id);
 
 		return "Deleted";
 	}
