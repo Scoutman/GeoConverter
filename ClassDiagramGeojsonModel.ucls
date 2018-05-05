@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="at.mlakar.geoconverter.geojson.model.MGeojson" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MGeojson.java" binary="false" 
+  <class id="1" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MGeojson" project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MGeojson.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="143" y="36"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -11,8 +11,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="at.mlakar.geoconverter.geojson.model.MType" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MType.java" binary="false" 
+  <class id="2" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MType" project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MType.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="885" y="229"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -21,8 +21,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="at.mlakar.geoconverter.geojson.model.MPoint" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MPoint.java" binary="false" 
+  <class id="3" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MPoint" project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MPoint.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1207" y="7"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -31,8 +31,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="at.mlakar.geoconverter.geojson.model.MLineString" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MLineString.java" binary="false" 
+  <class id="4" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MLineString" project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MLineString.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1212" y="250"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -41,8 +41,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="at.mlakar.geoconverter.geojson.model.MPolygon" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MPolygon.java" binary="false" 
+  <class id="5" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MPolygon" project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MPolygon.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1213" y="493"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -51,8 +51,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="at.mlakar.geoconverter.geojson.model.MGeometry" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MGeometry.java" binary="false" 
+  <class id="6" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MGeometry" project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MGeometry.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="534" y="228"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -61,8 +61,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="at.mlakar.geoconverter.geojson.model.MNamedElement" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MNamedElement.java" binary="false" 
+  <class id="7" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MNamedElement" 
+    project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MNamedElement.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="142" y="238"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -71,8 +72,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="at.mlakar.geoconverter.geojson.model.MMultiPoint" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MMultiPoint.java" binary="false" 
+  <class id="8" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MMultiPoint" project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MMultiPoint.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1221" y="127"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -81,9 +82,10 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="at.mlakar.geoconverter.geojson.model.MMultiLineString" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MMultiLineString.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MMultiLineString" 
+    project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MMultiLineString.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1226" y="372"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -91,8 +93,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="at.mlakar.geoconverter.geojson.model.MMultiPolygon" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MMultiPolygon.java" binary="false" 
+  <class id="10" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MMultiPolygon" 
+    project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MMultiPolygon.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1226" y="616"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -101,8 +104,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="at.mlakar.geoconverter.geojson.model.MCoordinate" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MCoordinate.java" binary="false" 
+  <class id="11" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MCoordinate" 
+    project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MCoordinate.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="532" y="405"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -111,9 +115,10 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="at.mlakar.geoconverter.geojson.model.MCoordinatePosition" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MCoordinatePosition.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MCoordinatePosition" 
+    project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MCoordinatePosition.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="427" y="636"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -121,9 +126,10 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="at.mlakar.geoconverter.geojson.model.MCoordinateList" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MCoordinateList.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MCoordinateList" 
+    project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MCoordinateList.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="730" y="596"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -131,8 +137,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="at.mlakar.geoconverter.geojson.model.MProperty" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MProperty.java" binary="false" 
+  <class id="14" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MProperty" project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MProperty.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="140" y="425"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -141,8 +147,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="at.mlakar.geoconverter.geojson.model.MFeature" project="GeoConverter" 
-    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/geojson/model/MFeature.java" binary="false" 
+  <class id="15" language="java" name="at.mlakar.geoconverter.converter.geojson.model.MFeature" project="GeoConverter" 
+    file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/geojson/model/MFeature.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="533" y="33"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -151,114 +157,114 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="16">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="17">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <association id="18">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="19" name="coordinateList">        
-        <position height="0" width="0" x="-11" y="-40"/>      
-      </attribute>      
-      <multiplicity id="20" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-11" y="-40"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="21">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <generalization id="22">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="23">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="24">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <association id="26">    
+  <association id="16">    
     <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="27" name="mGeometry">        
+      <attribute id="17" name="mGeometry">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="28" minimum="0" maximum="1">        
+      <multiplicity id="18" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="29">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="30" name="mProperties">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="31" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="32">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="33" name="featuresList">        
-        <position height="0" width="0" x="-2" y="-3"/>      
-      </attribute>      
-      <multiplicity id="34" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-2" y="-3"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="35">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="36">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <association id="37">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="38" name="coordinatesList">        
+  <association id="19">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="20" name="coordinateList">        
         <position height="0" width="0" x="-11" y="-40"/>      
       </attribute>      
-      <multiplicity id="39" minimum="0" maximum="1">        
+      <multiplicity id="21" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="-11" y="-40"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="40">    
+  <generalization id="22">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="23">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="24" name="mProperties">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="25" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="27" name="featuresList">        
+        <position height="0" width="0" x="-2" y="-3"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-2" y="-3"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="41" name="mType">        
+      <attribute id="30" name="coordinatesList">        
+        <position height="0" width="0" x="-11" y="-40"/>      
+      </attribute>      
+      <multiplicity id="31" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-11" y="-40"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="36">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="37" name="mType">        
         <position height="0" width="0" x="-107" y="55"/>      
       </attribute>      
-      <multiplicity id="42" minimum="0" maximum="1">        
+      <multiplicity id="38" minimum="0" maximum="1">        
         <position height="0" width="0" x="-107" y="55"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="41">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="42">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
