@@ -17,3 +17,15 @@ Converter for KML, GPX and GeoJSON files.
 
 	...
 
+
+## API Schnittstelle
+
+POST /api/geodata
+
+GET /api/geodata/geojson/:id
+
+GET /api/geodata/gpx/:id
+
+GET /api/geodata/kml/:id
+
+DELETE /api/geodata/:id

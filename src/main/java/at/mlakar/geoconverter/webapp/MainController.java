@@ -34,6 +34,47 @@ public class MainController
 		return "Saved";
 	}
 
+	@DeleteMapping("/{id}")
+	public @ResponseBody String deleteUser(@PathVariable Integer id)
+	{
+		geodataRepository.deleteById(id);
+
+		return "Deleted";
+	}	
+	
+	@GetMapping("/geojson/{id}")
+	public @ResponseBody String getGeojson(@PathVariable Integer id)
+	{
+		Geodata n = new Geodata();
+		Optional<Geodata> optionalUser = geodataRepository.findById(id);
+		n = optionalUser.get();
+
+		return n.getId() + " - " + n.getType();
+	}
+	
+	@GetMapping("/gpx/{id}")
+	public @ResponseBody String getGpx(@PathVariable Integer id)
+	{
+		Geodata n = new Geodata();
+		Optional<Geodata> optionalUser = geodataRepository.findById(id);
+		n = optionalUser.get();
+
+		return n.getId() + " - " + n.getType();
+	}	
+
+	@GetMapping("/kml/{id}")
+	public @ResponseBody String getKml(@PathVariable Integer id)
+	{
+		Geodata n = new Geodata();
+		Optional<Geodata> optionalUser = geodataRepository.findById(id);
+		n = optionalUser.get();
+
+		return n.getId() + " - " + n.getType();
+	}
+
+	
+	// ------------------------- TEST ---------------------------
+	
 	@GetMapping(path = "/all")
 	public @ResponseBody Iterable<Geodata> getAllUsers()
 	{
@@ -49,15 +90,7 @@ public class MainController
 
 		return n.getId() + " - " + n.getType();
 	}
-
-	@DeleteMapping("/{id}")
-	public @ResponseBody String deleteUser(@PathVariable Integer id)
-	{
-		geodataRepository.deleteById(id);
-
-		return "Deleted";
-	}
-
+	
 	@RequestMapping(path = "/test", method = { RequestMethod.GET })
 	public JsonResponse test()
 	{
