@@ -1,4 +1,4 @@
-package at.mlakar.geoconverter.webapp;
+package at.mlakar.geoconverter.webapp.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import at.mlakar.geoconverter.webapp.JsonResponse;
+import at.mlakar.geoconverter.webapp.repository.Geodata;
+import at.mlakar.geoconverter.webapp.repository.GeodataRepository;
 
 
 

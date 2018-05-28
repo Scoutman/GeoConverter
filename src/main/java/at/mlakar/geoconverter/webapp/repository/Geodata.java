@@ -1,4 +1,4 @@
-package at.mlakar.geoconverter.webapp;
+package at.mlakar.geoconverter.webapp.repository;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
