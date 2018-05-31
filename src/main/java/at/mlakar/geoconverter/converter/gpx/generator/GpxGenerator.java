@@ -23,7 +23,7 @@ public class GpxGenerator
 		{
 			JAXBContext context = JAXBContext.newInstance(MGpx.class);
 			Marshaller m = context.createMarshaller();
-			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.FALSE);
 			m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
 			m.marshal(mGpx, gpxXml);
 		}

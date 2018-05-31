@@ -20,12 +20,13 @@ Converter for KML, GPX and GeoJSON files.
 
 ## API Schnittstelle
 
-POST /api/geodata
-
+POST /api/geodata/geojson
 GET /api/geodata/geojson/:id
 
+POST /api/geodata/gpx
 GET /api/geodata/gpx/:id
 
+POST /api/geodata/kml
 GET /api/geodata/kml/:id
 
 DELETE /api/geodata/:id

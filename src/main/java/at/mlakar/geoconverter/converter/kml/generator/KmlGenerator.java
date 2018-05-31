@@ -23,7 +23,7 @@ public class KmlGenerator
 		{
 			JAXBContext context = JAXBContext.newInstance(MKml.class);
 			Marshaller m = context.createMarshaller();
-			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.FALSE);
 			m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
 			m.marshal(mKml, kmlXml);
 		}

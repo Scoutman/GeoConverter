@@ -35,7 +35,7 @@ public class GeojsonGenerator implements GeojsonGeneratorInterface
 	{
 		JsonObject jsonObject = visitGeojson(geojsonModel);
 		
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		Gson gson = new GsonBuilder().create();
 		
 		return gson.toJson(jsonObject);
 	}
