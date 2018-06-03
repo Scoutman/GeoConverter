@@ -29,7 +29,6 @@ public class GeojsonService extends GeodataService
 		String geojsonString = geojsonGenerator.getGeojson(geojsonModel);
 
 		Geodata geodataEntity = new Geodata();
-		geodataEntity.setType(GEODATA_TYPE);
 		geodataEntity.setGeodata(geojsonString);
 		Geodata geodataDbEntity = geodataRepository.save(geodataEntity);
 

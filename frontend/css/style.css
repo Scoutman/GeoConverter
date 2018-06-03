@@ -1,0 +1,15 @@
+html {
+	font-family: Lucida Sans, Arial;
+}
+
+#mapid {
+	height:700px;
+}
+
+#menu {
+	padding: 1em;
+}
+
+#txtGeodata {
+	width: 100%;
+}

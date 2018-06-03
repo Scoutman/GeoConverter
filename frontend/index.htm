@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Geodata converter - Frontend Example</title>
+	<meta charset="UTF-8"> 
+
+	<link rel="stylesheet" href="leaflet/leaflet.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="leaflet/leaflet.js"></script>
+	<script src="javascript/geodata.js"></script>
+
+
+
+</head>
+
+<body>
+
+	<div id="menu">
+		
+		<input type="file" id="geodataFile" /><br />
+		
+		Set geodata type: 
+		<select id="geodataType" size="1">
+			<option>geojson</option>
+			<option>gpx</option>
+			<option>kml</option>
+		</select>
+		<br />
+
+		<button type="button" id="btnUpload">Upload geodata file</button>
+		
+		<hr />
+
+		<button type="button" id="btnGetGeojson">Convert to GeoJSON</button> 
+		<button type="button" id="btnGetGpx">Convert to GPX</button> 
+		<button type="button" id="btnGetKml">Convert to KML</button> 
+		<br />
+		<textarea id="txtGeodata" rows="10"></textarea> 
+
+		<hr />
+
+		<button type="button" id="btnReset">Delete geodata objects</button> 
+
+		<hr />
+
+	</div>
+
+	<div id="mapid"></div>
+
+
+</body>
+
+</html>

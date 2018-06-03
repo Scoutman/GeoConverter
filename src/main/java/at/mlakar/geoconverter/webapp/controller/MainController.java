@@ -1,6 +1,7 @@
 package at.mlakar.geoconverter.webapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import at.mlakar.geoconverter.webapp.service.GpxService;
 import at.mlakar.geoconverter.webapp.service.JsonResponse;
 import at.mlakar.geoconverter.webapp.service.KmlService;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path = "/api/geodata")
 public class MainController
@@ -42,7 +44,7 @@ public class MainController
 
 		return jsonResponse;
 	}
-
+	
 	@PostMapping("/geojson")
 	public @ResponseBody JsonResponse postGeojson(@RequestParam String geodata)
 	{
