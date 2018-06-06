@@ -6,6 +6,7 @@ var mymap;
 
 var geodataId;
 var geojsonFeature;
+var geojsonLayer;
 
 var geodataFile;
 var geodataFileData;
@@ -13,7 +14,7 @@ var btnUpload;
 var btnGetGeojson;
 var btnGetGpx;
 var btnGetKml;
-var btnReset;
+var btnDelete;
 var txtGeodata;
 var geodataType;
 
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	btnGetGeojson = document.getElementById("btnGetGeojson");
 	btnGetGpx = document.getElementById("btnGetGpx");
 	btnGetKml = document.getElementById("btnGetKml");
-	btnReset = document.getElementById("btnReset");
+	btnDelete = document.getElementById("btnDelete");
 	txtGeodata = document.getElementById("txtGeodata");
 	geodataType = document.getElementById("geodataType");
 
@@ -66,9 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		getGeodata("kml", setConverterGeodata);
 	});
 
-	btnReset.addEventListener("click", function() {
+	btnDelete.addEventListener("click", function() {
 
-		console.log("click btnReset");
+		console.log("click btnDelete");
+
+		deleteGeodata();
 	});			
 });
 
@@ -92,6 +95,7 @@ function readGeodataFile()
 	console.log(file);
 
 	reader.readAsText(file);
+	setGeodataTypeSelect(file.name);
 
 	reader.onload = function() {
 		geodataFileData = reader.result;
@@ -151,7 +155,7 @@ function setMapFeatures(responseText)
 {
 	var response = JSON.parse(responseText);
 	geojsonFeature = JSON.parse(response.geodata);
-	L.geoJSON(geojsonFeature).addTo(mymap);
+	geojsonLayer = L.geoJSON(geojsonFeature).addTo(mymap);
 }
 
 function setConverterGeodata(responseText)
@@ -161,4 +165,59 @@ function setConverterGeodata(responseText)
 	txtGeodata.innerHTML = geodata;
 }
 
+
+function deleteGeodata()
+{
+	console.log("deleteGeodata");
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	
+		if (this.readyState == 4 && this.status == 200)
+		{
+			console.log("AJAX response: " + this.responseText);
+			var response = JSON.parse(this.responseText);
+
+			if (response.errorCode == 0)
+			{
+				console.log("Geodata object deleted");
+
+				txtGeodata.innerHTML = "";
+				mymap.removeLayer(geojsonLayer);
+				geodataFile.value = "";
+				geodataId = null;
+				geojsonFeature = null;
+
+			}
+		}
+	};
+
+	xhttp.open("DELETE", serverUrl + "/api/geodata/" + geodataId, true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send();	
+}
+
+function setGeodataTypeSelect(filename)
+{
+	var extension = filename.substr(filename.lastIndexOf(".") + 1);
+
+	switch(extension)
+	{
+		case "geojson":
+			geodataType.selectedIndex = 0;
+		break;
+		
+		case "json":
+			geodataType.selectedIndex = 0;
+		break;
+
+		case "gpx":
+			geodataType.selectedIndex = 1;
+		break;
+
+		case "kml":
+			geodataType.selectedIndex = 2;
+		break;
+	}
+}
 
