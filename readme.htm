@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#geoconverter">GeoConverter</a>
+<ul>
+<li><a href="#datenbank-setup-mysql">Datenbank Setup (MySQL)</a></li>
+<li><a href="#backend-application-starten">Backend Application starten</a></li>
+<li><a href="#frontend-application-starten">Frontend Application starten</a></li>
+<li><a href="#api-schnittstelle">API Schnittstelle</a></li>
+<li><a href="#error-codes">Error Codes</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="geoconverter">GeoConverter</h1>
+<p>Konvertiert GeoJSON, GPX and KML Dateien.</p>
+<h2 id="datenbank-setup-mysql">Datenbank Setup (MySQL)</h2>
+<pre><code>src/main/resources/application.properties
+</code></pre>
+<h2 id="backend-application-starten">Backend Application starten</h2>
+<pre><code>src/main/java/at/mlakar/geoconverter/Application.java
+</code></pre>
+<h2 id="frontend-application-starten">Frontend Application starten</h2>
+<pre><code>GeoConverter/frontend/index.htm
+</code></pre>
+<h2 id="api-schnittstelle">API Schnittstelle</h2>
+<p>Default URI: <a href="http://localhost:8080/api/geodata">http://localhost:8080/api/geodata</a></p>
+<h3 id="post-apigeodatageojson">POST /api/geodata/geojson</h3>
+<p><strong>Beschreibung:</strong> Sendet GeoJSON Daten an das Webservice.<br>
+<strong>Parameter:</strong> geodata</p>
+<p><strong>Beispiel Server Antwort:</strong></p>
+<pre><code>{
+    "geodataId": 2,
+    "type": "geojson",
+    "geodata": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{\"name\":\"rote wand\"},...",
+    "error": "",
+    "errorCode": 0
+}
+</code></pre>
+<h3 id="get-apigeodatageojsonid">GET /api/geodata/geojson/:id</h3>
+<p><strong>Beschreibung:</strong> Gibt Datensatz mit der übergebenen ID im GeoJSON Format zurück.</p>
+<p><strong>Beispiel Server Antwort:</strong></p>
+<pre><code>{
+    "geodataId": 1,
+    "type": "geojson",
+    "geodata": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{\"name\":\"Hochlantsch\"},\"geometry\":{\"type\":\"Point\",\"coordinates\":[15.423645,47.362176]}},{\"type\":\"Feature\",\"properties\":{\"name\":\"Route Rote Wand\"},...",
+    "error": "",
+    "errorCode": 0
+}
+</code></pre>
+<h3 id="post-apigeodatagpx">POST /api/geodata/gpx</h3>
+<p><strong>Beschreibung:</strong> Sendet GPX Daten an das Webservice.<br>
+<strong>Parameter:</strong> geodata</p>
+<p><strong>Beispiel Server Antwort:</strong></p>
+<pre><code>{
+    "geodataId": 3,
+    "type": "gpx",
+    "geodata": "&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?&gt;&lt;gpx version=\"1.1\"&gt;&lt;wpt lat=\"47.32923199357016\" lon=\"15.362652534697418\"&gt;&lt;name&gt;Mixnitz&lt;/name&gt;&lt;/wpt&gt;&lt;wpt lat=\"47.36261372836141\" lon=\"15.425823921416168\"&gt;&lt;name&gt;Hochlantsch&lt;/name&gt;&lt;/wpt&gt;...",
+    "error": "",
+    "errorCode": 0
+}
+</code></pre>
+<h3 id="get-apigeodatagpxid">GET /api/geodata/gpx/:id</h3>
+<p><strong>Beschreibung:</strong> Gibt Datensatz mit der übergebenen ID im GPX Format zurück.</p>
+<p><strong>Beispiel Server Antwort:</strong></p>
+<pre><code>{
+    "geodataId": 1,
+    "type": "gpx",
+    "geodata": "&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?&gt;&lt;gpx version=\"1.1\"&gt;&lt;wpt lat=\"47.362176\" lon=\"15.423645\"&gt;&lt;name&gt;Hochlantsch&lt;/name&gt;&lt;/wpt&gt;&lt;wpt lat=\"47.362176\" lon=\"15.423645\"&gt;&lt;name&gt;Hochlantsch&lt;/name&gt;&lt;/wpt&gt;&lt;rte&gt;...",
+    "error": "",
+    "errorCode": 0
+}
+</code></pre>
+<h3 id="post-apigeodatakml">POST /api/geodata/kml</h3>
+<p><strong>Beschreibung:</strong> Sendet KML Daten an das Webservice.<br>
+<strong>Parameter:</strong> geodata</p>
+<p><strong>Beispiel Server Antwort:</strong></p>
+<pre><code>{
+    "geodataId": 1,
+    "type": "kml",
+    "geodata": "&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?&gt;&lt;kml&gt;&lt;Document&gt;&lt;name&gt;Punkt, Route und Polygon Test&lt;/name&gt;&lt;Placemark&gt;&lt;name&gt;Hochlantsch&lt;/name&gt;&lt;Point&gt;&lt;coordinates&gt;15.423645,47.362176,1720 &lt;/coordinates&gt;...",
+    "error": "",
+    "errorCode": 0
+}
+</code></pre>
+<h3 id="get-apigeodatakmlid">GET /api/geodata/kml/:id</h3>
+<p><strong>Beschreibung:</strong> Gibt Datensatz mit der übergebenen ID im KML Format zurück.</p>
+<p><strong>Beispiel Server Antwort:</strong></p>
+<pre><code>{
+    "geodataId": 1,
+    "type": "kml",
+    "geodata": "&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?&gt;&lt;kml&gt;&lt;Document&gt;&lt;Placemark&gt;&lt;name&gt;Hochlantsch&lt;/name&gt;&lt;Point&gt;&lt;coordinates&gt;15.423645,47.362176,0 &lt;/coordinates&gt;&lt;/Point&gt;&lt;/Placemark&gt;&lt;Placemark&gt;&lt;name&gt;Route Rote Wand&lt;/name&gt;&lt;LineString&gt;...",
+    "error": "",
+    "errorCode": 0
+}
+</code></pre>
+<h3 id="delete-apigeodataid">DELETE /api/geodata/:id</h3>
+<p><strong>Beschreibung:</strong> Löscht Datensatz mit der übergebenen ID.</p>
+<p><strong>Beispiel Server Antwort:</strong></p>
+<pre><code>{
+    "geodataId": null,
+    "type": "",
+    "geodata": "[]",
+    "error": "",
+    "errorCode": 0
+}
+</code></pre>
+<h2 id="error-codes">Error Codes</h2>
+<p><strong>Error Code:</strong> 10<br>
+<strong>Error:</strong> Geodata object ID not found.</p>
+<p><strong>Error Code:</strong> 11<br>
+<strong>Error:</strong> Delete error. Geodata object ID not found.</p>
+
+    </div>
+  </div>
+</body>
+
+</html>

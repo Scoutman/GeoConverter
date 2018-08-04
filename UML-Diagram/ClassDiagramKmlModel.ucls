@@ -4,8 +4,8 @@
   <class id="1" language="java" name="at.mlakar.geoconverter.converter.kml.model.MLinearRing" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MLinearRing.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1126" y="257"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="940" y="255"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -14,28 +14,28 @@
   <class id="2" language="java" name="at.mlakar.geoconverter.converter.kml.model.MCoordinate" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MCoordinate.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1116" y="478"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="941" y="430"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
   <class id="3" language="java" name="at.mlakar.geoconverter.converter.kml.model.MPlacemark" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MPlacemark.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="608" y="442"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="542" y="442"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
   <class id="4" language="java" name="at.mlakar.geoconverter.converter.kml.model.MFeature" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MFeature.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="92" y="253"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="220" y="278"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -44,8 +44,8 @@
   <class id="5" language="java" name="at.mlakar.geoconverter.converter.kml.model.MPoint" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MPoint.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1127" y="62"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="938" y="74"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -54,8 +54,8 @@
   <class id="6" language="java" name="at.mlakar.geoconverter.converter.kml.model.MGeometry" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MGeometry.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="870" y="105"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="738" y="121"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -64,8 +64,8 @@
   <class id="7" language="java" name="at.mlakar.geoconverter.converter.kml.model.MLineString" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MLineString.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1126" y="158"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="940" y="160"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -74,8 +74,8 @@
   <class id="8" language="java" name="at.mlakar.geoconverter.converter.kml.model.MDocument" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MDocument.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="402" y="83"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="395" y="120"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -85,8 +85,8 @@
     project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MCoordinatesList.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="843" y="476"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="709" y="452"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -95,8 +95,8 @@
   <class id="10" language="java" name="at.mlakar.geoconverter.converter.kml.model.MNamedElement" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MNamedElement.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="93" y="450"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="144" y="450"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -105,8 +105,8 @@
   <class id="11" language="java" name="at.mlakar.geoconverter.converter.kml.model.MKml" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MKml.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="103" y="83"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="172" y="121"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -115,8 +115,8 @@
   <class id="12" language="java" name="at.mlakar.geoconverter.converter.kml.model.MFolder" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MFolder.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="283" y="441"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="310" y="443"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -125,151 +125,151 @@
   <class id="13" language="java" name="at.mlakar.geoconverter.converter.kml.model.MMultiGeometry" project="GeoConverter" 
     file="/GeoConverter/src/main/java/at/mlakar/geoconverter/converter/kml/model/MMultiGeometry.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="607" y="216"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="542" y="216"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
   <association id="14">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="15" name="mCoordinatesList">        
-        <position height="0" width="0" x="57" y="0"/>      
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="15" name="mGeometry">        
+        <position height="0" width="0" x="88" y="-40"/>      
       </attribute>      
       <multiplicity id="16" minimum="0" maximum="1">        
-        <position height="0" width="0" x="57" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="17">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="18">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="19" name="folderList">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="20" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="21">    
-    <bendpoint x="702" y="121"/>    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="22" name="geometryList">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="23" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="88" y="-40"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="24">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="25" name="mMultiGeometry">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="26" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="27">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="28">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="29" name="coordinateList">        
-        <position height="0" width="0" x="48" y="1"/>      
-      </attribute>      
-      <multiplicity id="30" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="48" y="1"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="32" name="placemarkList">        
-        <position height="0" width="0" x="46" y="0"/>      
-      </attribute>      
-      <multiplicity id="33" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="46" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="34">    
-    <end type="SOURCE" refId="12"/>    
+  <generalization id="17">    
+    <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <association id="35">    
+  <generalization id="18">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <association id="20">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="36" name="mDocument">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="21" name="mDocument">        
+        <position height="0" width="0" x="-7" y="37"/>      
       </attribute>      
-      <multiplicity id="37" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="22" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-7" y="37"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="39" name="mGeometry">        
-        <position height="0" width="0" x="220" y="-56"/>      
+  <association id="23">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="24" name="folderList">        
+        <position height="0" width="0" x="27" y="2"/>      
       </attribute>      
-      <multiplicity id="40" minimum="0" maximum="1">        
-        <position height="0" width="0" x="220" y="-56"/>      
+      <multiplicity id="25" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="27" y="2"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="41">    
+  <generalization id="26">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="27">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="28" name="mCoordinatesList">        
+        <position height="0" width="0" x="-77" y="-24"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-77" y="-24"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="31">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <association id="42">    
-    <bendpoint x="449" y="241"/>    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="43" name="placemarkList">        
-        <position height="0" width="0" x="68" y="-6"/>      
+  <association id="32">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="33" name="mMultiGeometry">        
+        <position height="0" width="0" x="-65" y="0"/>      
       </attribute>      
-      <multiplicity id="44" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="68" y="-6"/>      
+      <multiplicity id="34" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-65" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="36" name="coordinateList">        
+        <position height="0" width="0" x="-127" y="-47"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-127" y="-47"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="39" name="placemarkList">        
+        <position height="0" width="0" x="-20" y="0"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-20" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="45">    
+  <generalization id="41">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="6"/>  
   </generalization>  
-  <generalization id="46">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="47">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
+  <association id="42">    
+    <bendpoint x="449" y="241"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="43" name="placemarkList">        
+        <position height="0" width="0" x="2" y="-6"/>      
+      </attribute>      
+      <multiplicity id="44" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="2" y="-6"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="45">    
+    <bendpoint x="584" y="123"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="46" name="geometryList">        
+        <position height="0" width="0" x="-132" y="16"/>      
+      </attribute>      
+      <multiplicity id="47" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-132" y="16"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
